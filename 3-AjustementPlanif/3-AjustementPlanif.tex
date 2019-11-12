@@ -1,4 +1,6 @@
-\documentclass[canadien]{article}
+\documentclass[11pt, french]{article}
+
+\usepackage[letterpaper, hmargin=1.25in, vmargin=1in]{geometry}
 
 \usepackage[pdftex,colorlinks,linkcolor=black,urlcolor=black,citecolor=black]{hyperref}
 
@@ -8,17 +10,33 @@
 \usepackage{babel}
 \usepackage[autolanguage]{numprint}
 
-\usepackage{booktabs}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
 
-\usepackage{times}
+\usepackage{graphicx}
 
-\usepackage{todonotes}
+\usepackage{amsmath,systeme}
+\usepackage{siunitx}
+
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usetikzlibrary{babel}
+
+\usepackage{parskip}
+
+\usepackage{setspace}
+
+\usepackage[font=bf]{caption}
+
+\usepackage{placeins}
 
 \begin{document}
 
-\listoftodos
+\renewcommand{\tablename}{Tableau}
 
 \input{titlepage.tex}
+
+\pagenumbering{arabic}
 
 \input{content.tex}
 
