@@ -8,10 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Set up Git repository
         uses: actions/checkout@v1
+
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@master
         with:
           working_directory: 4-Rapport-Final
           root_file: 4-Rapport-Final.tex
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1.0.0
