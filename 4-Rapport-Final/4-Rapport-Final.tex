@@ -1,0 +1,65 @@
+\documentclass[11pt, french, draft]{article}
+
+\usepackage[letterpaper, hmargin=1.25in, vmargin=1in]{geometry}
+
+\usepackage[pdftex,colorlinks,linkcolor=black,urlcolor=black,citecolor=black]{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{babel}
+\usepackage[autolanguage]{numprint}
+
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{graphicx}
+
+\usepackage{amsmath,systeme}
+\usepackage{siunitx}
+
+\usepackage{parskip}
+
+\usepackage{setspace}
+
+\usepackage[font=bf]{caption}
+
+\usepackage{placeins}
+
+\usepackage[colorinlistoftodos, obeyDraft]{todonotes}
+\newcommand{\todoDoing}[2][]{\todo[color=yellow, #1]{#2}}
+\newcommand{\todoDone}[2][]{\todo[color=green, #1]{#2}}
+\newcommand{\todoGeneric}[2][]{\todo[color=white, #1]{#2}}
+
+\begin{document}
+
+\renewcommand{\tablename}{Tableau}
+
+\listoftodos
+
+\input{titlepage.tex}
+
+\pagenumbering{roman}
+
+\tableofcontents
+
+\newpage
+
+\pagenumbering{arabic}
+
+\input{s1-planification}
+\input{s2-conception}
+\input{s3-tests}
+\input{s4-bilan}
+
+\todo{Make annexe page layout}
+
+\pagebreak
+
+\input{a1-manuel}
+
+\pagebreak
+
+\input{template}
+
+\end{document}
