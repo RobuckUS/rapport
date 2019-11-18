@@ -18,9 +18,6 @@ jobs:
           working_directory: 4-Rapport-Final
           root_file: 4-Rapport-Final.tex
 
-      - name: PWD
-        run: pwd && ls -lR
-
       - name: Upload artifact
         continue-on-error: true
         uses: actions/upload-artifact@v1.0.0
