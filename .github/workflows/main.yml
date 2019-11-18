@@ -19,7 +19,7 @@ jobs:
           root_file: 4-Rapport-Final.tex
 
       - name: PWD
-        run: pwd && ls -lr
+        run: pwd && ls -lR
 
       - name: Upload artifact
         continue-on-error: true
