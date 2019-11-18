@@ -13,5 +13,5 @@ jobs:
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@master
         with:
-          root_file: 4-Rapport-Final/4-Rapport-Final.tex 
-
+          working_directory: 4-Rapport-Final
+          root_file: 4-Rapport-Final.tex
