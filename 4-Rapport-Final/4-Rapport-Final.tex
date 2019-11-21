@@ -32,9 +32,11 @@
 \usepackage{placeins}
 
 \usepackage[colorinlistoftodos, obeyDraft]{todonotes}
-\newcommand{\todoDoing}[2][]{\todo[color=yellow, #1]{#2}}
-\newcommand{\todoDone}[2][]{\todo[color=green, #1]{#2}}
+\newcommand{\todoPoints}[2][]{\todo[color=red!50, inline, #1]{#2}}
+\newcommand{\todoDoing}[2][]{\todo[color=yellow, inline, #1]{#2}}
+\newcommand{\todoDone}[2][]{\todo[color=green, inline, #1]{#2}}
 \newcommand{\todoGeneric}[2][]{\todo[color=white, #1]{#2}}
+\newcommand{\todoWho}[2][]{\todo[color=blue!40, #1]{\textbf{#2}}}
 
 \begin{document}
 
