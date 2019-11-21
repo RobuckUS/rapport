@@ -24,3 +24,9 @@ jobs:
         with:
           name: 4-Rapport-Final
           path: 4-Rapport-Final/4-Rapport-Final.pdf
+      - name: Release
+        uses: softprops/action-gh-release@v0.1.0
+        with:
+            name: auto
+            prerelease: true
+            files: 4-Rapport-Final/4-Rapport-Final.pdf
