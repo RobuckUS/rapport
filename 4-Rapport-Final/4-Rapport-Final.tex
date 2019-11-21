@@ -13,6 +13,11 @@
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
+\usepackage[style=ieee, sorting=none]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage[title,titletoc]{appendix}
+
 \usepackage{graphicx}
 
 \usepackage{amsmath,systeme}
@@ -52,13 +57,18 @@
 \input{s3-tests}
 \input{s4-bilan}
 
-\todo{Make annexe page layout}
+\newpage
 
-\pagebreak
+\section{Références}
+\printbibliography[heading=none]
 
-\input{a1-manuel}
+\newpage
 
-\pagebreak
+\begin{appendices}
+    \input{a1-manuel}
+\end{appendices}
+
+\newpage
 
 \input{template}
 
