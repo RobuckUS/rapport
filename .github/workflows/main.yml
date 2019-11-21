@@ -24,12 +24,3 @@ jobs:
         with:
           name: 4-Rapport-Final
           path: 4-Rapport-Final/4-Rapport-Final.pdf
-      - name: Release
-        uses: marvinpinto/action-automatic-releases@latest
-        with:
-          automatic_release_tag: "latest"
-          prerelease: true
-          files: 4-Rapport-Final/4-Rapport-Final.pdf
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
