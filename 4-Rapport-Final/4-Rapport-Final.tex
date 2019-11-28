@@ -1,4 +1,4 @@
-\documentclass[11pt, french, draft]{article}
+\documentclass[11pt, french]{article}
 
 \usepackage[letterpaper, hmargin=1.25in, vmargin=1in]{geometry}
 
@@ -26,12 +26,13 @@
 \usepackage{parskip}
 
 \usepackage{setspace}
+\setstretch{1.5}
 
 \usepackage[font=bf]{caption}
 
-\usepackage{placeins}
+\usepackage[section]{placeins}
 
-\usepackage[colorinlistoftodos, obeyDraft]{todonotes}
+\usepackage[colorinlistoftodos]{todonotes}
 \newcommand{\todoPoints}[2][]{\todo[color=red!50, inline, #1]{#2}}
 \newcommand{\todoDoing}[2][]{\todo[color=yellow, inline, #1]{#2}}
 \newcommand{\todoDone}[2][]{\todo[color=green, inline, #1]{#2}}
@@ -41,14 +42,31 @@
 \begin{document}
 
 \renewcommand{\tablename}{Tableau}
+\renewcommand{\listfigurename}{Liste des figures}
 
-\listoftodos
+\begin{spacing}{1}
+    \listoftodos
+\end{spacing}
 
 \input{titlepage.tex}
 
 \pagenumbering{roman}
 
-\tableofcontents
+\begin{spacing}{1}
+    \tableofcontents
+\end{spacing}
+
+\newpage
+
+\begin{spacing}{1}
+    \listoffigures
+\end{spacing}
+
+\newpage
+
+\begin{spacing}{1}
+    \listoftables
+\end{spacing}
 
 \newpage
 

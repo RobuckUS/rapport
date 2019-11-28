@@ -1,17 +1,48 @@
 \section{Exemple de titre de section}
 
-\begin{spacing}{1.5}
-    \todoGeneric[inline]{Exemple de description du contenu du paragraphe (NE PAS SUPPRIMER)}
-    Write actual content here.
-    You can split long line. \cite{boutin_en_2009}
-    Like that.
-\end{spacing}
+\todoGeneric[inline]{Exemple de description du contenu du paragraphe (NE PAS SUPPRIMER)}
+Write actual content here.
+You can split long line.
+Like that.
+
+You can also create new paragraph by adding a blank line.
 
 \subsection{Exemples de TODO}
 
-\begin{spacing}{1.5}
-    \todoPoints{Exemple de description du contenu du paragraphe (NE PAS SUPPRIMER)}
-    \todoDoing{Changer la ligne \texttt{\textbackslash todoPoints} en \texttt{\textbackslash todoDoing} avant de travailler sur un paragraph.}
-    \todoDone{Écrivez en \texttt{\textbackslash todoDone} lorsque que vous croyez que le paragraphe est terminé.}
-    \missingfigure{Inscrivez \texttt{\textbackslash missingfigure} si vous voules insérer une figure}
-\end{spacing}
+\todoPoints{Exemple de description du contenu du paragraphe (NE PAS SUPPRIMER)}
+\todoDoing{Changer la ligne \texttt{\textbackslash todoPoints} en \texttt{\textbackslash todoDoing} avant de travailler sur un paragraph.}
+\todoDone{Écrivez en \texttt{\textbackslash todoDone} lorsque que vous croyez que le paragraphe est terminé.}
+\missingfigure{Inscrivez \texttt{\textbackslash missingfigure} si vous voules insérer une figure}
+
+\section{Ajouter un tableau}
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{lllll}
+        \hline
+        État      & État      & Calculé & Simulé & Mesuré\\
+        (Décimale)& (Binaire) & (V)     & (V)    & (V)\\
+        \hline\hline
+        0 & 000 & 0,00 & 0,00 & 0,065\\
+        1 & 001 & 0,67 & 0,66 & 0,671\\
+        \hline
+    \end{tabular}
+    \caption{Tensions V\textsubscript{+} en fonction de l'état en entrée}
+    \label{tab:template-Vout}
+\end{table}
+
+\section{Ajouter une image}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\linewidth]{example-image-a}
+    \caption{Description de l'image.}
+    \label{fig:template-example}
+\end{figure}
+
+\section{Ajouter une citation}
+
+On peut citer
+un texte \cite{boutin_en_2009},
+une figure (\ref{fig:template-example}) ou
+un tableau (\ref{tab:template-Vout}).
