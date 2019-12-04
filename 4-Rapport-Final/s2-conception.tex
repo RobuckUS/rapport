@@ -87,13 +87,20 @@ Il fallait donc changer 180 degrés du servo en 360 degré.
 Nous avons donc utilisé deux roues ayant le même diamètre primitif que la première, dont une avait 2 fois plus de dents pour assurer un tour complet.
 Les roues de 12 et 24 dents ont donc étés choisies car elles etait de bonne dimensions.
 
-\missingfigure{engrenages}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/s2/cad/gearbox1.PNG}
+    \caption{Description de l'image.}
+    \label{fig:s2-cad-gearbox1}
+\end{figure}
+\todo{add a description to the figure}
 
 \subsubsection{Mode de visé}
 Plusieurs options s’offraient à nous pour visé avec le lanceur.
 La première étant de jouer avec l’angle du lanceur pour aller chercher différentes distance (pour atteindre tous les verres de beer pong).
 Cette option a été écartée puisque nous ne savions pas le poids finale du lanceur et si un servo allait être capable de le maintenir en place de façon constante.
 Nous avons donc conçue un un support ayant un arc de cercle ce qui nous a permit de choisir une angle et de sécuriser le lanceur à cet angle.
+
 \missingfigure{support de visé}
 La distance des lancers allait donc être déterminée par la vitesse à laquelle la roue d’inertie tourne, ainsi que la pression qu’elle applique sur les balles.
 
@@ -104,9 +111,15 @@ Cette idée de rampe a été abandonnée lorsque nous avons réalisé de qu’el
 Nous avons donc optés pour un lancer direct avec un petit canon pour réduire les imprécisions de la roue.
 
 \missingfigure{Rampe de lancement}
-\missingfigure{canon}
-
 fig:Rampe de lancement
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/s2/cad/cannon.PNG}
+    \caption{Description de l'image.}
+    \label{fig:s2-cad-cannon}
+\end{figure}
+\todo{add a description to the figure}
+
 
 Une autre amélioration de la version finale à été de fixer l’axe de la roue d’inertie des deux côtés et d’ajouter un roulement à bille.
 Les pièces imprimées en 3D sont rarement balancées et la roue ajoutait beaucoup de vibration au système.
@@ -115,7 +128,14 @@ De plus, ce support facilitait aussi l’ajustement de la position de la roue d�
 Un écrou sous le support était facilement accessible et nous n’avions plus besoins de défaire le montage au complet pour dévisser le moteur et changer sa hauteur.
 Ce support était aussi imprimé en 2 pièces pour faciliter son implémentation au système.
 
-\missingfigure{support}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/s2/cad/motorholer.PNG}
+    \caption{Description de l'image.}
+    \label{fig:s2-cad-motorholer}
+\end{figure}
+\todo{add a description to the figure}
+
 \todo{ajouter photo}
 
 Pour assurer un maillage adéquat entre les roues de la boîte de transmission et la crémaillère, des trous oblongs avaient étés utilisés.
@@ -124,13 +144,39 @@ La position du servo a aussi été modifiée puisqu’il interférait avec les t
 Nous avons donc conçue une boîte de transmission complètement indépendante du lanceur et qui gardait toujours la bonne distance entre les engrenages.
 Cette boite était par la suite fixée au lanceur à l’aide des trous prévus à cette effet.
 
-\missingfigure{engrenages}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/s2/cad/gearbox2.PNG}
+    \caption{Description de l'image.}
+    \label{fig:s2-cad-gearbox2}
+\end{figure}
+\todo{add a description to the figure}
+
 \todo{ajouter photo}
 Le PLA est un plastique malléable et facile à percer.
 Nous nous sommes servis de ces caractéristique pour décortiquer notre lanceur en pièces faciles à imprimer et nous avons utilisés des tiges filetées de dimensions 10-32 pour tenir le tout ensemble.
 
-\missingfigure{modèle}
-\missingfigure{modèle}
+\begin{figure}[h!]
+    \centering
+
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/s2/cad/lanceur1.PNG}
+        \caption{Description de l'image.}
+        \label{fig:a1-s2-cad-lanceur1}
+    \end{subfigure}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/s2/cad/lanceur2.PNG}
+        \caption{Description de l'image.}
+        \label{fig:a1-s2-cad-lanceur2}
+    \end{subfigure}
+
+    \caption{Description de l'image.}
+    \label{fig:template-example-flottante}
+\end{figure}
+\todo{add a description to the figure}
+
 \todo{ajouter photo monté}
 
 \subsection{Verre}
