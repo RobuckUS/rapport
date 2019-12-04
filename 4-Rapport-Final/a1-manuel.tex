@@ -5,12 +5,122 @@
 
 \todoGeneric[inline]{Intro de la section manuel}
 
+\begin{wrapfigure}{r}{0.25\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{example-image-a}
+    \caption{Version finale du prototype}
+    \label{fig:a1-protoype}
+\end{wrapfigure}
+
+Le robot est un lanceur de balle de bière-pong qui a comme utilisation première de lancer des balles dans des verres.
+Le robot sera contrôlé par un utilisateur à l’aide d’une application mobile qui lui permettra de le faire bouger de gauche à droite et de contrôler la force du moteur avec de lancer la balle.
+De plus, des verres intelligents accompagne le robot.
+Les verres capte les détectes les balles à l’intérieur du verre pour avertir au joueur quels verres sont réussis à l’aide de lumières qui s’allument.
+
 \subsection{Consignes d'utilisation}
 
-\todo[inline]{Le manuel d’utilisation doit expliquer en détail comment interagir avec votre robot.}
-\todo[inline]{Insérer des images et des éléments visuels.}
+\paragraph{Installation de l’application}
 
-\subsection{Consignes de maintenance}
+\begin{wrapfigure}{r}{0.5\linewidth}
+    \centering
 
-\todo[inline]{Le manuel d’utilisation doit expliquer en détail comment interagir avec votre robot.}
-\todo[inline]{Insérer des images et des éléments visuels.}
+    \begin{subfigure}{.8\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-a}
+        \caption{Construction du code QR}
+        \label{fig:a1-create-code-QR}
+    \end{subfigure}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-b}
+        \caption{Code QR}
+        \label{fig:a1-code-QR}
+    \end{subfigure}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-c}
+        \caption{Icône de l’application}
+        \label{fig:a1-app-icon}
+    \end{subfigure}
+
+    \caption{Installation de l’application}
+    \label{fig:template-example-flottante}
+\end{wrapfigure}
+\todo{add pictures}
+
+\begin{enumerate}
+    \item Créer un compte \href{https://appinventor.mit.edu/}{MIT App Inventor (https://appinventor.mit.edu/)}.
+    \item Obtenir l’application sur son compte MIT App Inventor.
+    \item Construire le code QR de l’application à l’aide d’un outil de MIT App Inventor (figure \ref{fig:a1-create-code-QR})
+    \item Avec un téléphone Android, numériser le code QR, afin que l’application s’installe sur votre téléphone. (figure \ref{fig:a1-code-QR})
+    \item Vous pouvez maintenant lancer l’application à l’aide de l’icône qui s’est installer sur votre téléphone. (figure \ref{fig:a1-app-icon})
+\end{enumerate}
+
+\paragraph{Démarrage du robot}
+
+\begin{wrapfigure}{r}{0.5\linewidth}
+    \centering
+
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-a}
+        \caption{Interrupteur de mise en marche}
+        \label{fig:a1-interrupteur}
+    \end{subfigure}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{example-image-b}
+        \caption{Chargeur de batterie}
+        \label{fig:a1-chargeur-batterie}
+    \end{subfigure}
+
+    \caption{Installation de l’application}
+    \label{fig:template-example-flottante}
+\end{wrapfigure}
+\todo{add pictures}
+
+\begin{enumerate}
+    \item Soulever le chapeau du robot 
+    \item Pour mettre en marche le robot il faut activer l’interrupteur. (figure \ref{fig:a1-interrupteur})
+    \item Si le robot manque de puissance il faut penser à recharger la batterie qui se situe en dessous du robot. (figure \ref{fig:a1-chargeur-batterie})
+    \item Remplir le réservoir du robot, afin de pouvoir lancer des balles.
+    \item Placer le robot en face des verres à une distance raisonnable.
+\end{enumerate}
+
+\paragraph{Démarrage de la plaque des verres}
+
+\begin{wrapfigure}{r}{0.3\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{example-image-a}
+    \caption{Interrupteur de mise en marche de la plaque de verres}
+    \label{fig:a1-interrupteur-verres}
+\end{wrapfigure}
+\todo{add pictures}
+
+\begin{enumerate}
+    \item Il suffit d’activer les deux interrupteurs sur la boite noire de la plaque des verres. (figure \ref{fig:a1-interrupteur-verres})
+    \item Si les lumières n’allument pas, il faut changer les batteries (2 batteries 9V) dans la boite noire coller au module des verres.
+\end{enumerate}
+
+\paragraph{Connection de l'application au robot}
+
+\todo{add pictures}
+
+\begin{enumerate}
+    \item Aller dans vos réglage Bluetooth de votre téléphone pour vous connecter au périphérique : HC05-Slave (Figure 8)
+    \item Rentrer le mot de passe : 1234
+    \item Aller dans l’application pour connecter le Bluetooth de l’application avec votre Bluetooth du téléphone (Figure 9)
+    \item Quand le robot a été arrêter vous devez découpler HC05-Slave de vos périphériques déjà couplés et répéter les étape 1 à 3. (Figure 10 7)
+\end{enumerate}
+
+\paragraph{Contrôle du robot avec l’application}
+
+\todo{add 2 pictures}
+
+\begin{enumerate}
+    \item Pour faire bouger le robot à gauche utiliser le bouton en haut à gauche de l’application (Figure 10 1)
+    \item Pour faire bouger le robot à droite utiliser le bouton en haut à droite de l’application (Figure 10 2)
+    \item Pour faire augmenter la puissance du moteur utiliser le bouton d’addition (Figure 10 3)
+    \item Pour diminuer la puissance du moteur utiliser le bouton de soustraction (Figure 10 4)
+    \item Pour lancer la balle utiliser le bouton en forme de balle de ping-pong (Figure 10 6)
+\end{enumerate}
