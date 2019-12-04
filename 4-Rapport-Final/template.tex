@@ -31,16 +31,33 @@ You can also create new paragraph by adding a blank line.
     \label{tab:template-Vout}
 \end{table}
 
+\section{Ajouter une citation}
+
+On peut citer
+un texte \cite{boutin_en_2009},
+une figure (\ref{fig:template-example-image}),
+une figure flottante (\ref{fig:template-example-flottante}) ou
+un tableau (\ref{tab:template-Vout}).
+
 \section{Ajouter une image}
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.8\linewidth]{example-image-a}
     \caption{Description de l'image.}
-    \label{fig:template-example}
+    \label{fig:template-example-image}
 \end{figure}
 
-\section{Ajouter une citation}
+\section{Ajouter une image flottante}
+
+\begin{wrapfigure}{r}{0.25\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{example-image-a}
+    \caption{Description de l'image.}
+    \label{fig:template-example-flottante}
+\end{wrapfigure}
+
+Texte après
 
 On peut citer
 un texte \cite{boutin_en_2009},
