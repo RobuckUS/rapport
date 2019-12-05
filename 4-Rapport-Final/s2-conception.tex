@@ -34,9 +34,9 @@ De plus, un système comme celui-ci aurait été beaucoup plus compliqué que le
 
 \paragraph{Option finale (roue d’inertie)}
 Nous avons donc opté pour une roue d’inertie pour propulser nos balle.
-L’idée est venue des jouets de la marque "NERF", qui utilisent 2 roues tournant en sens inverse pour propulser des fléchettes de mousse sur une distance acceptable.
+L’idée est venue des jouets de la marque «NERF», qui utilisent 2 roues tournant en sens inverse pour propulser des fléchettes de mousse sur une distance acceptable.
 Ce système est aussi assez simple, puisqu’il requiert seulement un moteur pouvant tourner à une vitesse contrôlable et d’une roue d’inertie.
-Dans les lanceurs "NERF", les roues étaient en plastique dur, puisque que les projectiles étaient en mousse molle et très malléable.
+Dans les lanceurs «NERF», les roues étaient en plastique dur, puisque que les projectiles étaient en mousse molle et très malléable.
 Dans notre cas, nous ne voulions pas briser la balle, il a donc fallu rajouter une ruban extérieur en mousse servant à isoler les cadres de portes.
 
 \todo{(Placer photo de la roue)}
@@ -48,7 +48,7 @@ Voici les trois options principales.
 \paragraph{Option 1 (par gravité)}
 Nous avons pensé à utiliser la gravité pour pousser les balles sous la roue d’inertie pour simplifier le système.
 Ce système aurait seulement eu besoin d’un servomoteur pour assurer qu’une seule balle tombe à la fois dans le lanceur.
-Cependant, le système de roue d’inertie fait en sorte que la distance entre la roue et la base du lanceur est plus petit qu’une balle??? (pour que la balle soit pressée dans la mousse, assurant un transfert d’énergie suffisant pour la propulser.
+Cependant, le système de roue d’inertie fait en sorte que la distance entre la roue et la base du lanceur est plus petit qu’une balle\todo{Jordan:???} (pour que la balle soit pressée dans la mousse, assurant un transfert d’énergie suffisant pour la propulser.
 La gravité n’avait donc pas la force nécessaire pour enfoncer la balle sous la roue.
 
 \paragraph{Option 2 (avec came et tige-poussoir)}
@@ -189,7 +189,7 @@ Puisque c’est un moteur sans balai, il ne suffit pas seulement d’appliquer u
 Nous avons donc acheté un contrôleur servant à faire tourner le moteur et à modifier la vitesse grâce à un signal d'entrée.
 Le contrôleur choisi est le ESC 30A.
 Ce contrôleur a comme entrées une alimentation qui doit être d’environ 7,4~V pour que le moteur fonctionne comme il se doit selon la fiche technique du moteur \cite{noauthor_trackstar_nodate} et trois autres fils qui doivent être branché sur l’Arduino.
-Ces trois fils doivent être branché au commun de l’Arduino, au 5~V et à une sortie pouvant produire un PWM soient les brochess 2 à 13 de l’Arduino Mega.
+Ces trois fils doivent être branché au commun de l’Arduino, au 5~V et à une sortie pouvant produire un PWM soient les broches 2 à 13 de l’Arduino Mega.
 Les trois fils de sorties du contrôleur sont branchés directement sur les trois fils du moteur.
 Pour ce branchement, il a été très important de vérifier que le commun de l’alimentation soit connecté au commun de l’Arduino.
 
@@ -234,7 +234,7 @@ La \todo{insert reference (maybe figure)} représente chacune des constantes qui
 Ensuite, lors de la configuration de l'Arduino, le Bluetooth est initialisé avec les broches correspondantes.
 De plus, le moteur sans balai que nous avons utilisé est configuré comme un servomoteur, donc nous avons utilisé la classe MegaServo pour initialiser ce moteur.
 Les valeurs à rentrer en paramètre de la fonction ne sont pas des angles puisque c’est un moteur sans balais.
-Selon \cite{arduino_arduino_nodate} le contrôleur du moteur reçoit une impulsion entre 1000~$\mu$s et 2000~$\mu$s, c’est pourquoi nous utilisons ces valeurs.
+Selon \cite{arduino_arduino_2019} le contrôleur du moteur reçoit une impulsion entre 1000~$\mu$s et 2000~$\mu$s, c’est pourquoi nous utilisons ces valeurs.
 Dans ce cas, 1000 représente la valeur minimum c’est-à-dire que le moteur ne tourne pas, alors qu’à 2000, le moteur tourne à sa pleine capacité.
 Le servo moteur a été configurer avec la libraire LibRobus, qui nous a été offerte.
 
@@ -249,7 +249,7 @@ Lorsque l’utilisateurs demande un incrément de la vitesse du moteur, la varia
 Pour la condition où le joueur demande une décrémentation, la vitesse du moteur est décrémentée par 5.
 Pour la distance que nous désirions des verres, après quelques tests, nous avons réalisé que la vitesse optimale était entre 1150 et 1200.
 C’est pourquoi les 10 niveaux de forces du moteur se situent entre 1150 et 1200.
-Ensuite, lorsque le joueur appuie sur "tirer", l’Arduino reçoit comme commande de tirer.
+Ensuite, lorsque le joueur appuie sur «tirer», l’Arduino reçoit comme commande de tirer.
 L’angle du servomoteur est donc configurer pour reculer à son minimum, et retourner à son angle initial de 180 degrés.
 Durant cette action, le moteur sans balai part sa puissance à la vitesse demandée par l’utilisateur.
 Donc, lorsque la balle est poussée dans la roue de mousse reliée au moteur sans balai, la balle est propulsée et l’Arduino envoie comme message de fermé le moteur DC.
@@ -277,7 +277,8 @@ L’image \todo{add ref to figure} ci-dessous illustre l’allure finale du plat
 \todo[inline]{add image: Plateau de verres}
 
 Pour être en mesure de bien effectuer sa conception, il a fallu répondre à certaines contraintes.
-Celles-ci sont que le plateau doit avoir une belle esthétique tout en étant assez gros pour contenir six verres et assez petit pour être en mesure de le déplacer et de le ranger facilement. Il doit aussi être fait de façon à rendre accessible tout ce qui est d’électronique à l’intérieur.
+Celles-ci sont que le plateau doit avoir une belle esthétique tout en étant assez gros pour contenir six verres et assez petit pour être en mesure de le déplacer et de le ranger facilement.
+Il doit aussi être fait de façon à rendre accessible tout ce qui est d’électronique à l’intérieur.
 De plus, le coût de réalisation ne devait pas être trop élevé vu le statut d’étudiant des membres de l’équipe.
 
 La base ainsi que les bordures du plateau auraient pu être imprimées à partir d’une imprimante 3D, mais les dimensions sont très grandes rendant le coût de son impression très élevé dû au prix du plastique ABS.
@@ -366,7 +367,7 @@ Ce circuit est monté sur une plaquette de prototypage se situant à l’intéri
 \subsubsection{Signal de sortie}
 
 La dernière partie de la conception est celle contrôlant le signal du circuit de sortie.
-Ainsi, lorsque l’Arduino ne reçoit plus 5~V en entrée d’un des verres, celui-ci envoie un signal de 5~V dont le but sera d’alimenter une des DELs bleues se trouvant sur le toit du plateau.
+Ainsi, lorsque l’Arduino ne reçoit plus 5~V en entrée d’un des verres, celui-ci envoie un signal de 5~V dont le but sera d’alimenter une des DEL bleues se trouvant sur le toit du plateau.
 Le circuit de ces DEL est présenté sur la figure 6\todo{add ref to figure}.
 
 \todo[inline]{add figures: Circuit de sortie du Arduino}
@@ -389,13 +390,13 @@ Pour les verres, il fallait programmer l'Arduino Mega 2560 qui a été utilisé.
 Cette programmation était relativement simple.
 Six des entrées digitales (configurées en entrées) de l'Arduino étaient connectées aux verres, ces entrées sont les broches 22 à 32.
 Ces entrées sont par incrément de 2, ce qui totalise les six verres.
-Six autres entrées digitales (configurées en sortie) étaient connectées aux DELs, ceux-ci sont les entrées 1 à 7.
-Lors de la configuration de l'Arduino (init), une tension de cinq volts par sorties digitales est envoyé pour allumer les DELs.
+Six autres entrées digitales (configurées en sortie) étaient connectées aux DEL, ceux-ci sont les entrées 1 à 7.
+Lors de la configuration de l'Arduino (init), une tension de cinq volts par sorties digitales est envoyé pour allumer les DEL.
 Ensuite, le programme passe à la boucle.
 La boucle (loop) vérifie si une balles est entrée dans les verres.
 Le programme sait lorsqu'un verre est réussi en vérifiant les entrées digitales 22 à 32.
 Lorsque l'entrée ne détecte plus une tension de 5 V, un message est envoyé pour fermer la DEL correspondante.
-Les DELs ont été organisées pour que chaque sortie corresponde au bon verre.
+Les DEL ont été organisées pour que chaque sortie corresponde au bon verre.
 Par exemple, la DEL 22 est reliée à l’entrée 1, la DEL 24 est reliée à l’entrée 2 etc.
 
 \section{Conception de l'application}
