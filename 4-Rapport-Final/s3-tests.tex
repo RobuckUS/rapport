@@ -17,11 +17,24 @@ Le deuxième est le système de verre intelligent.
 Le suivant est le système Bluetooth reliant le robot à une application et finalement il y a le robot en lui-même.
 Deux moteurs sont installés sur le lanceur et ceux-ci sont tester séparément.
 Un des tests principaux du lanceur était la tension d’alimentation du moteur sans balais.
-Comme démontré dans le tableau ci-dessous, le courant minimum pour faire tourner le monteur est de 1,7~A.
+Comme démontré dans le tableau \ref{tab:s3-test-unitaires}, le courant minimum pour faire tourner le monteur est de 1,7~A.
 Quelques autres tests unitaires pour le lanceur ont été effectuer tel que la rotation du servomoteur permettant d’actionner le système de chargement des balles.
 Voici quelques exemples de tests unitaires sur les différents modules de notre prototype.
 
-\todo[inline]{add tableau: Exemple de plan de tests unitaires}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{p{0.25in}p{1.5in}p{1.5in}p{0.5in}p{1.5in}}
+        \hline
+        \bfseries Test & \bfseries Description & \bfseries Résultats attendue & \bfseries Réussite & \bfseries Justification \\
+        \hline\hline
+        1 & Courant du moteur sans balais & Au-dessus de 2,5~A & Oui & Le moteur accepte un courant de 1,7~A \\
+        2 & Réception du signal de l’application par le récepteur Bluetooth & Le port série reçoit les chiffres affiliés à chaque bouton de l’application & Oui & Chaque bouton envoie un chiffre entre 1 et 6 qui est reçu par le récepteur \\
+        3 & Tension de la DEL & Au-dessus de 0,5~V & Non & Nous avons obtenu des valeurs entre 0,4~V et 0,6~V \\
+        \hline
+    \end{tabular}
+    \caption{Exemple de plan de tests unitaires}
+    \label{tab:s3-test-unitaires}
+\end{table}
 
 Notre moteur sans balais devait être alimenter a 7,4~V minimum, mais sur le robot les seules sorties de tension sont de 5~V ou 12~V.
 Nous avons alors ajusté notre régulateur de tension en tournant le potentiomètre pour qu’il convertisse la tension de 12~V en tension de 7,4~V.
@@ -40,11 +53,38 @@ Nous voulions avoir environ 10 vitesses possible pour l’utilisateur, alors nou
 Ensuite des tests intégrant tous les modules ensemble ont été effectué afin de s’assurer que tout fonctionne lorsque le prototype est terminé.
 Voici quelques exemples de tests effectués.
 
-\todo[inline]{add tableau: exemple de plan de test intégrateur}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{p{0.25in}p{1.5in}p{1.5in}p{0.5in}p{1.5in}}
+        \hline
+        \bfseries Test & \bfseries Description & \bfseries Résultats attendue & \bfseries Réussite & \bfseries Justification \\
+        \hline\hline
+        1 & Les fonctions de l’application s’effectuent sur le robot. & Lorsqu’on appuie sur une touche de l’application, le robot effectue la fonction. & Oui & Lorsqu’un appuie sur une touche de l’application, le robot effectue cette tâche c’est-à-dire qu’il tire quand on lui demande, il bouge quand on lui demande, etc. \\
+        2 & Illumination des DEL & Lorsqu’il y a une balle dans un verre, la DEL relier à ce verre s’allume. & Oui & La balle vient couper le faisceau infrarouge donc l’ampli-op ne reçoit plus de tension à sa borne négative alors la borne positive devient plus grande et donc l’amplificateur envoie une tension de 5V. \\
+        3 & Constance des tirs & Les tirs à une même vitesse devraient tous se retrouver dans une région circulaire d’environ 6 pouces de rayon & Non & Lors des tests effectués, le lanceur avait beaucoup de difficultés à réaliser les attentes. Il était plus ou moins constant mais pas dans la région voulue. Pour remédier à ce problème, nous avons installé un canon plus long au lanceur. \\
+        \hline
+    \end{tabular}
+    \caption{Exemple de plan de tests d'intégration}
+    \label{tab:s3-test-integration}
+\end{table}
 
 \subsection{Tests des cas limites}
 
 Les derniers tests effectués sont des tests de cas limite, c’est-à-dire les limites du prototype.
 Nous avons testé le nombre d’impulsions minimales et maximales envoyer au \emph{ESC} du moteur pour lancer une balle, le nombre de balles pouvant être lancé sans remplir le réservoir, la distance maximale entre l’application et le robot afin que le robot effectue encore les commandes demandées, la tension minimale pour allumer une DEL ainsi que la hauteur maximal et minimal de la roue propulsant la balle.
 
-\todo[inline]{Add tableau: plan de test de cas limites}
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{p{0.25in}p{1.5in}p{1.5in}p{0.5in}p{1.5in}}
+        \hline
+        \bfseries Test & \bfseries Description & \bfseries Résultats attendue & \bfseries Réussite & \bfseries Justification \\
+        \hline\hline
+        1 & Impulsion maximale pour propulser une balle & 2000~$\mu$s & Non & Après 1500~$\mu$s, la balle n’est pas vraiment lancer, elle agit bizarrement. \\
+        2 & Nombre de balles pouvant être lancé sans avoir à remplir le réservoir à balle & Environ 10 balles & Oui & Le réservoir peut contenir 10 balles \\
+        3 & Tension minimale de la batterie des verre & 6,5~V & Oui & Si la batterie de 9~V se rend en dessous de 6,5V le système de verre ne fonctionne plus, car la tension de référence des régulateurs est de 6,5~V \\
+        4 & Hauteur maximale de la roue propulsant la balle & 40~mm de la rampe de lancement & Oui & Au-dessus de 40 mm la roue ne touche pas à la balle, donc la balle n’est pas propulsée. \\
+        \hline
+    \end{tabular}
+    \caption{Exemple de plan de tests d'intégration}
+    \label{tab:s3-test-integration}
+\end{table}
