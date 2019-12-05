@@ -160,7 +160,14 @@ La première étant de jouer avec l’angle du lanceur pour aller chercher diff�
 Cette option a été écartée puisque nous ne savions pas le poids finale du lanceur et si un servo allait être capable de le maintenir en place de façon constante.
 Nous avons donc conçue un un support ayant un arc de cercle ce qui nous a permit de choisir une angle et de sécuriser le lanceur à cet angle.
 
-\missingfigure{support de visé}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{img/s2/cad/support}
+    \caption{Description de l'image.}
+    \label{fig:s2-cad-support}
+\end{figure}
+\todo{add a description to the figure}
+
 La distance des lancers allait donc être déterminée par la vitesse à laquelle la roue d’inertie tourne, ainsi que la pression qu’elle applique sur les balles.
 
 \subsection{Version finale}
@@ -169,13 +176,25 @@ Notre Première itération comportait une grande rampe pour assurer que les ball
 Cette idée de rampe a été abandonnée lorsque nous avons réalisé de qu’elle ampleur elle devait être pour répondre à nos besoins (un arc de cercle d’environ 150 mm de rayon, pour assurer un arc de cercle assez graduel.
 Nous avons donc optés pour un lancer direct avec un petit canon pour réduire les imprécisions de la roue.
 
-\missingfigure{Rampe de lancement}
-fig:Rampe de lancement
+
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\linewidth]{img/s2/cad/cannon}
+
+    \begin{subfigure}{0.3\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/s2/cad/rampe}
+        \caption{Rampe de lancement}
+        \label{fig:s2-cad-rampe}
+    \end{subfigure}
+    \begin{subfigure}{0.3\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/s2/cad/cannon}
+        \caption{Description de l'image.}
+        \label{fig:s2-cad-cannon}
+    \end{subfigure}
+    
     \caption{Description de l'image.}
-    \label{fig:s2-cad-cannon}
+    \label{fig:template-example-flottante}
 \end{figure}
 \todo{add a description to the figure}
 
