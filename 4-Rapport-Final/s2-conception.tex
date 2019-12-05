@@ -83,15 +83,12 @@ Durant cette action, le moteur sans balai part sa puissance à la vitesse demand
 Donc, lorsque la balle est poussée dans la roue de mousse reliée au moteur sans balai, la balle est propulsée et l’Arduino envoie comme message de fermé le moteur DC.
 Au départ, nous voulions laisser le moteur sans balai rouler en tout temps, cependant par souci d’économie d’énergie et pour que le système soutenant le moteur s’use moins rapidement, nous avons décidé de le partir uniquement lorsque l’Arduino reçoit la commande de tirer.
 
-\subsection{Mécanique}
+\subsection{Conception mécanique}
 \todoWho{Will}
 
 Le lanceur de balles est une partie très importante du projet,
 car il doit être capable de faire ce qu’il est conçu de façon consistante pour faciliter son utilisation.
-Il se sépare en 3 parties principales:
-la partie propulsion,
-la partie recharge ainsi que
-la partie visé.
+Il se sépare en 3 parties principales: la partie propulsion, la partie recharge ainsi que la partie visé.
 
 \subsection{Mode de propulsion}
 Pour la propulsion de la balle, trois systèmes ont été étudiés pour assurer une certaine précision tout en gardant le système simple.
@@ -365,7 +362,7 @@ Elles agissent comme témoins lumineux lorsque l’Arduino détecte qu’il y a 
 Ce circuit est également monté sur la plaquette de prototypage du boitier électrique.
 Malheureusement, le transfert du signal vers l’Arduino du robot avec l’aide de modules Bluetooth a été laissé tomber par manque de temps.
 
-\subsection{Logiciel}
+\subsection{Conception logiciel}
 \todoWho{Thierry}
 
 \todo[inline]{add pseudocode}
