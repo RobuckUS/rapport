@@ -6,16 +6,16 @@
 \todoWho{Will}
 
 Le lanceur de balles est une partie très importante du projet,
-car il doit être capable de faire ce qu’il est conçu de façon consistante pour faciliter son utilisation.
+car il doit être capable de faire ce à quoi il est conçu de façon consistante pour faciliter son utilisation.
 Il se sépare en 3 parties principales: la partie propulsion, la partie recharge ainsi que la partie visé.
 
 \subsubsection{Mode de propulsion}
 Pour la propulsion de la balle, trois systèmes ont été étudiés pour assurer une certaine précision tout en gardant le système simple.
 
 \paragraph{Option 1 (par contact)}
-Nous avons pensé à un système comprimant un ressort à l’aide d’un boîte de vitesse et d’une crémaillères.
+Nous avons pensé à un système comprimant un ressort à l’aide d’une boîte de vitesse et d’une crémaillère.
 Ce système à vite été écarté puisque nous ne savions pas si les pièces, principalement imprimées en PLA, allaient être capable de supporter l'énergie emmagasinée dans le ressort.
-De plus, il aurait fallu avoir une façon de placer les balles à la bonne distance du ressort et les faire tenir en place avant le contact, ce qui aurait compliqué les choses rapidement.
+De plus, il aurait fallu avoir une façon de placer les balles à la bonne distance du ressort et les faire tenir en place avant le contact, ce qui aurait rapidement compliqué les choses.
 Un solénoïde à aussi été envisagé pour frapper la balle, mais nos connaissance en magnétisme n’étaient pas adéquates pour considérer cette option plus sérieusement.
 
 \todo{(Placer photo croquis)}
@@ -34,25 +34,25 @@ De plus, un système comme celui-ci aurait été beaucoup plus compliqué que le
 
 \paragraph{Option finale (roue d’inertie)}
 Nous avons donc opté pour une roue d’inertie pour propulser nos balle.
-L’idée est venue des jouets de la marque NERF, qui utilisent 2 roues tournant en sens inverse pour propulser des fléchettes de mousse sur une distance acceptable.
+L’idée est venue des jouets de la marque "NERF", qui utilisent 2 roues tournant en sens inverse pour propulser des fléchettes de mousse sur une distance acceptable.
 Ce système est aussi assez simple, puisqu’il requiert seulement un moteur pouvant tourner à une vitesse contrôlable et d’une roue d’inertie.
-Dans les lanceurs NERF, les roues étaient en plastique dur, puisque que les projectiles étaient en mousse molle et très malléable.
-Dans notre cas, nous ne voulions pas briser la balle, il a donc fallu rajouter une extérieure de mousse servant à isoler les cadres de portes.
+Dans les lanceurs "NERF", les roues étaient en plastique dur, puisque que les projectiles étaient en mousse molle et très malléable.
+Dans notre cas, nous ne voulions pas briser la balle, il a donc fallu rajouter une ruban extérieur en mousse servant à isoler les cadres de portes.
 
 \todo{(Placer photo de la roue)}
 
 \subsubsection{Méthode de chargement de la balle}
-Quelques méthode pour pousser les balles vers la roue d’inertie ont étés envisagées.
+Quelques méthodes pour pousser les balles vers la roue d’inertie ont étés envisagées.
 Voici les trois options principales.
 
 \paragraph{Option 1 (par gravité)}
 Nous avons pensé à utiliser la gravité pour pousser les balles sous la roue d’inertie pour simplifier le système.
-ce système aurait seulement eu besoin d’un servo pour assurer qu’une seule balle tombe à la fois dans le lanceur.
-Cependant, le système de roue d’inertie fait que la distance entre la roue et la base du lanceur est plus petit qu’une balle (pour que la balle soit pressée dans la mousse, assurant un transfert d’énergie suffisant pour la propulser.
+Ce système aurait seulement eu besoin d’un servomoteur pour assurer qu’une seule balle tombe à la fois dans le lanceur.
+Cependant, le système de roue d’inertie fait en sorte que la distance entre la roue et la base du lanceur est plus petit qu’une balle??? (pour que la balle soit pressée dans la mousse, assurant un transfert d’énergie suffisant pour la propulser.
 La gravité n’avait donc pas la force nécessaire pour enfoncer la balle sous la roue.
 
 \paragraph{Option 2 (avec came et tige-poussoir)}
-Nous voulions nous servir d’un servo pour gérer le chargement, car ils sont simple à utiliser et assez précis pour nos besoins.
+Nous voulions nous servir d’un servomoteur pour gérer le chargement, car ils sont simples à utiliser et assez précis pour nos besoins.
 Le débattement nécessaire pour amener les balles de la position ou les balles sont placées jusqu’en dessous de la roue est d’environ 75 mm (les balles faisant 40mm de diamètre et en ajoutant quelques millimètres pour assurer la solidité du lanceur).
 Les servos allant seulement de 0 à 180 degrés, il aurait fallu une camme d’au moins 75 mm de diamètre pour accommoder ce débattement, ce qui aurait été beaucoup trop gros en comparaison au lanceur.
 
@@ -62,8 +62,8 @@ En se servant des CADs fournies par McMaster.com, il a été facile de trouver d
 Un pignon ayant un diamètre primitif de 1 pouce ayant 20 dents et sa crémaillère répondaient parfaitement à nos critères de dimensions.
 Il nous faudrait donc faire tourner le pignon une fois(2*pi*0,5 po) pour atteindre le débattement voulu (3po).
 Il fallait donc changer 180 degrés du servo en 360 degré.
-Nous avons donc utilisé deux roues ayant le même diamètre primitif que la première, dont une avait 2 fois plus de dents pour assurer un tour complet.
-Les roues de 12 et 24 dents ont donc étés choisies car elles etait de bonne dimensions.
+Nous avons donc utilisé deux roues ayant le même diamètre primitif que la première, dont une qui avait 2 fois plus de dents pour assurer un tour complet.
+Les roues de 12 et 24 dents ont donc étés choisies, car elles etaient de bonnes dimensions.
 
 \begin{figure}[h!]
     \centering
@@ -75,9 +75,9 @@ Les roues de 12 et 24 dents ont donc étés choisies car elles etait de bonne di
 
 \subsubsection{Mode de visé}
 Plusieurs options s’offraient à nous pour visé avec le lanceur.
-La première étant de jouer avec l’angle du lanceur pour aller chercher différentes distance (pour atteindre tous les verres de beer pong).
-Cette option a été écartée puisque nous ne savions pas le poids finale du lanceur et si un servo allait être capable de le maintenir en place de façon constante.
-Nous avons donc conçue un un support ayant un arc de cercle ce qui nous a permit de choisir une angle et de sécuriser le lanceur à cet angle.
+La première étant de jouer avec l’angle du lanceur pour aller chercher différentes distances (pour atteindre tous les verres de beer pong).
+Cette option a été écartée puisque nous ne savions pas le poids finale du lanceur et si un servomoteur allait être capable de le maintenir en place de façon constante.
+Nous avons donc conçue un support ayant un arc de cercle ce qui nous a permit de choisir une angle et de sécuriser le lanceur à cet angle.
 
 \begin{figure}[h!]
     \centering
@@ -91,9 +91,9 @@ La distance des lancers allait donc être déterminée par la vitesse à laquell
 
 \subsubsection{Version finale du protype}
 La version finale allait donc être un lanceur fixe rechargé par une crémaillère, qui propulse les balles à l’aide d’une roue d’inertie.
-Notre Première itération comportait une grande rampe pour assurer que les balles aient un maximum de temps en contact avec le lanceur pour augmenter la précision.
-Cette idée de rampe a été abandonnée lorsque nous avons réalisé de qu’elle ampleur elle devait être pour répondre à nos besoins (un arc de cercle d’environ 150 mm de rayon, pour assurer un arc de cercle assez graduel.
-Nous avons donc optés pour un lancer direct avec un petit canon pour réduire les imprécisions de la roue.
+Notre première itération comportait une grande rampe pour assurer que les balles aient un maximum de temps en contact avec le lanceur pour augmenter la précision.
+Cette idée de rampe a été abandonnée lorsque nous avons réalisé de quelle dimension elle devait être pour répondre à nos besoins (un arc de cercle d’environ 150 mm de rayon, pour assurer un arc de cercle assez graduel).
+Nous avons donc optés pour un lancer direct avec un petit canon pour réduire les imprécisions des tirs.
 
 \begin{figure}[h!]
     \centering
@@ -134,9 +134,9 @@ Ce support était aussi imprimé en 2 pièces pour faciliter son implémentation
 \todo{ajouter photo}
 
 Pour assurer un maillage adéquat entre les roues de la boîte de transmission et la crémaillère, des trous oblongs avaient étés utilisés.
-Cependant, Nous nous sommes rendu compte que ces trous ne servaient pas à grand chose et que les engrenages devaient être plus contraintes.
-La position du servo a aussi été modifiée puisqu’il interférait avec les tiges filetées servant à fixer le système.
-Nous avons donc conçue une boîte de transmission complètement indépendante du lanceur et qui gardait toujours la bonne distance entre les engrenages.
+Cependant, nous nous sommes rendu compte que ces trous ne servaient pas à grand chose et que les engrenages devaient être plus contraintes.
+La position du servomoteur a aussi été modifiée puisqu’il interférait avec les tiges filetées servant à fixer le système.
+Nous avons donc conçue une boîte de transmission complètement indépendante du lanceur qui gardait toujours la bonne distance entre les engrenages.
 Cette boite était par la suite fixée au lanceur à l’aide des trous prévus à cette effet.
 
 \begin{figure}[h!]
@@ -180,7 +180,7 @@ Nous nous sommes servis de ces caractéristique pour décortiquer notre lanceur 
 Puisque la méthode de lancer choisi est la roue d’inertie et la méthode de chargement est avec un pignon et une crémaillère, nous devions intégrer au montage un moteur DC et un servomoteur.
 Ainsi le moteur choisi pour faire tourner la roue d’inertie servant à propulser la balle est un moteur DC sans balai.
 Nous avons opté pour ce type de moteur puisque le nombre de rotation par minute devait être suffisamment élevé pour propulser la balle assez loin et le torque devait également être suffisamment important pour éviter une obstruction lors du passage de la balle.
-L’un d’entre nous possédait chez lui un moteur pouvant servir au projet, c’est donc lui qu’on a utilisé.
+L’un d’entre nous possédait un moteur pouvant servir au projet, c’est donc lui qu’on a utilisé.
 Il s’agit du moteur TrackStar 8.5T.
 
 \todo[inline]{add image}
@@ -189,16 +189,16 @@ Puisque c’est un moteur sans balai, il ne suffit pas seulement d’appliquer u
 Nous avons donc acheté un contrôleur servant à faire tourner le moteur et à modifier la vitesse grâce à un signal d'entrée.
 Le contrôleur choisi est le ESC 30A.
 Ce contrôleur a comme entrées une alimentation qui doit être d’environ 7,4~V pour que le moteur fonctionne comme il se doit selon la fiche technique du moteur \cite{noauthor_trackstar_nodate} et trois autres fils qui doivent être branché sur l’Arduino.
-Ces trois fils doivent être branché au commun de l’Arduino, au 5~V et à une sortie pouvant produire un PWM soient les pins 2 à 13 de l’Arduino Mega.
+Ces trois fils doivent être branché au commun de l’Arduino, au 5~V et à une sortie pouvant produire un PWM soient les brochess 2 à 13 de l’Arduino Mega.
 Les trois fils de sorties du contrôleur sont branchés directement sur les trois fils du moteur.
-Pour ce branchement il a été très important de vérifier que le commun de l’alimentation soit connecté au commun de l’Arduino.
+Pour ce branchement, il a été très important de vérifier que le commun de l’alimentation soit connecté au commun de l’Arduino.
 
 \todo[inline]{add image: Circuit d'alimentation et de contrôle du moteur DC sans balai}
 
 Par ailleurs, le moteur doit recevoir une tension d’alimentation de 7,4~V comme indiqué sur la figure\todo{make ref to figure}.
 Cependant, les seules prises d’alimentation sur le robot pouvant fournir un gros courant sont des prises de 5~V et 12~V.
 Ainsi, nous avons acheté un régulateur de tension de type buck pour pouvoir passer de 12~V à 7,4~V.
-Le régulateur de tension acheté est le VMA404 utilisant un LM2596, car c’était un modèle peu dispendieux disponible à la boutique Electro5 à Sherbrooke.
+Le régulateur de tension acheté est le VMA404 utilisant un LM2596, car c’était un modèle peu dispendieux disponible à la boutique Electro5 de Sherbrooke.
 Comme indiqué dans la prochaine figure\todo{Add ref to figure}, la tension d’entrée est de 12~V et en mesurant la tension de sortie avec un multimètre nous pouvons ajuster le potentiomètre pour avoir 7,4~V en sortie.
 
 \todo[inline]{add image: Régulateur de tension VMA404}
@@ -212,7 +212,7 @@ Son branchement est effectué comme à la prochaine figure\todo{Add ref to figur
 
 On voit donc sur la figure \todo{Add ref to figure} que le module a 4 fils de branchement.
 Il y a deux fils pour l’alimentation, et deux fils pour la réception et la transmission du signal.
-Le module marche à des tensions de 3,3~V c’est pourquoi il y a le diviseur de tension à l’entrée RXD du module suggéré sur le site \cite{noauthor_setting_nodate}.
+Le module marche à des tensions de 3,3~V, c’est pourquoi il y a le diviseur de tension à l’entrée RXD du module comme suggéré sur le site \cite{noauthor_setting_nodate}.
 L’alimentation est toutefois branchée au 5~V, car il y a un régulateur interne sur le module Bluetooth pour passer de 5~V à 3,3~V.
 
 \subsection{Conception logiciel}
@@ -223,7 +223,7 @@ L’alimentation est toutefois branchée au 5~V, car il y a un régulateur inter
 \todo[inline]{add Diagramme d’activité}
 
 La programmation du robot peut sembler compliqué, mais en réalité elle était très simple.
-L’application Android qui est conçue pour communiquer avec le robot envoie un chiffre en fonction de l’action que veut faire l’utilisateur.
+L’application Android, qui est conçue pour communiquer avec le robot, envoie un chiffre en fonction de l’action que veut faire l’utilisateur.
 Par exemple, si l’utilisateurs appuie sur la balle pour tirer, le téléphone va communiquer avec le récepteur Bluetooth du robot en lui envoyant le chiffre 6.
 
 \todo[inline]{add image}
@@ -231,8 +231,8 @@ Par exemple, si l’utilisateurs appuie sur la balle pour tirer, le téléphone 
 Le chiffre envoyé est de type «char».
 Pour simplifier la compréhension du code, nous avons initialisé chacune des constantes et avons attribué une variable représentative.
 La \todo{insert reference (maybe figure)} représente chacune des constantes qui ont été initialisé.
-Ensuite, lors de la configuration de l'Arduino, le Bluetooth est initialisé avec les pins correspondantes.
-De plus, le moteur sans balai que nous avons utilisé est configuré comme un servo moteur, donc nous avons utilisé la classe MegaServo pour initialiser ce moteur.
+Ensuite, lors de la configuration de l'Arduino, le Bluetooth est initialisé avec les broches correspondantes.
+De plus, le moteur sans balai que nous avons utilisé est configuré comme un servomoteur, donc nous avons utilisé la classe MegaServo pour initialiser ce moteur.
 Les valeurs à rentrer en paramètre de la fonction ne sont pas des angles puisque c’est un moteur sans balais.
 Selon \cite{arduino_arduino_nodate} le contrôleur du moteur reçoit une impulsion entre 1000~$\mu$s et 2000~$\mu$s, c’est pourquoi nous utilisons ces valeurs.
 Dans ce cas, 1000 représente la valeur minimum c’est-à-dire que le moteur ne tourne pas, alors qu’à 2000, le moteur tourne à sa pleine capacité.
@@ -249,8 +249,8 @@ Lorsque l’utilisateurs demande un incrément de la vitesse du moteur, la varia
 Pour la condition où le joueur demande une décrémentation, la vitesse du moteur est décrémentée par 5.
 Pour la distance que nous désirions des verres, après quelques tests, nous avons réalisé que la vitesse optimale était entre 1150 et 1200.
 C’est pourquoi les 10 niveaux de forces du moteur se situent entre 1150 et 1200.
-Ensuite, lorsque le joueur appuie sur tirer, l’Arduino reçoit comme commande de tirer.
-L’angle du servo moteur est donc configurer pour reculer à son minimum, et retourner à son angle initial de 180 degrés.
+Ensuite, lorsque le joueur appuie sur "tirer", l’Arduino reçoit comme commande de tirer.
+L’angle du servomoteur est donc configurer pour reculer à son minimum, et retourner à son angle initial de 180 degrés.
 Durant cette action, le moteur sans balai part sa puissance à la vitesse demandée par l’utilisateur.
 Donc, lorsque la balle est poussée dans la roue de mousse reliée au moteur sans balai, la balle est propulsée et l’Arduino envoie comme message de fermé le moteur DC.
 Au départ, nous voulions laisser le moteur sans balai rouler en tout temps, cependant par souci d’économie d’énergie et pour que le système soutenant le moteur s’use moins rapidement, nous avons décidé de le partir uniquement lorsque l’Arduino reçoit la commande de tirer.
@@ -259,7 +259,7 @@ Au départ, nous voulions laisser le moteur sans balai rouler en tout temps, cep
 
 Le système de verres est ce qui reçoit les balles lancées par le lanceur de balles.
 C’est un système composé d’un plateau où sont déposés six verres.
-Dans chacun de ces verres, il y a un capteur détectant la présence d’une balle ou non et le signal de ces capteurs sera transmis au robot en continu par une communication Bluetooth avec l’aide d’un microcontrôleur Arduino méga2560.
+Dans chacun de ces verres, il y a un capteur détectant la présence d’une balle ou non.
 Dans ce projet, tous les schémas électriques du système de verres sont faits avec le logiciel \emph{KiCad} et la conception mécanique est faite avec le logiciel \emph{SolidWorks}.
 
 \subsection{Conception mécanique}
@@ -270,22 +270,22 @@ Le plateau est composé d’une base carrée en bois dont les côtés ont quator
 Sur chaque côté de la base, il y a des bordures de deux pouces demis de haut par trois-quarts de pouce de largeur.
 Il y a également six verres fixés sur la base formant un triangle.
 Ensuite, sur trois des quatre bordures il y a des supports où est déposé le toit du plateau.
-Celui-ci est fait en mélamine et il comporte six troue de quatre pouces de diamètre alignés avec les verres.\todo{add citation}
-Finalement, le boitier électrique est fixé sur l’extérieur de la bordure droite 3 pouces.
+Celui-ci est fait en mélamine et il comporte six troues de quatre pouces de diamètre alignés avec les verres.\todo{add citation}
+Finalement, le boitier électrique est fixé sur l’extérieur de la bordure droite de 3 pouces.
 L’image \todo{add ref to figure} ci-dessous illustre l’allure finale du plateau de verres.
 
 \todo[inline]{add image: Plateau de verres}
 
 Pour être en mesure de bien effectuer sa conception, il a fallu répondre à certaines contraintes.
-Celles-ci sont que le plateau doit avoir une belle esthétique tout en étant assez gros pour contenir six verres, assez petit pour être en mesure de le déplacer et de le ranger facilement, fait de façon à rendre accessible tout ce qui est d’électronique à l’intérieur.
+Celles-ci sont que le plateau doit avoir une belle esthétique tout en étant assez gros pour contenir six verres et assez petit pour être en mesure de le déplacer et de le ranger facilement. Il doit aussi être fait de façon à rendre accessible tout ce qui est d’électronique à l’intérieur.
 De plus, le coût de réalisation ne devait pas être trop élevé vu le statut d’étudiant des membres de l’équipe.
 
 La base ainsi que les bordures du plateau auraient pu être imprimées à partir d’une imprimante 3D, mais les dimensions sont très grandes rendant le coût de son impression très élevé dû au prix du plastique ABS.
-Aussi, l’utilisation de ce type d’imprimante n’est pas justifiée dû au fait que le plateau comporte peux détailles.
+Aussi, l’utilisation de ce type d’imprimante n’est pas justifiée dû au fait que le plateau comporte peu de détailles.
 Ensuite, parce que son coût est très faible, le bois a été choisi pour le matériau du plateau.
 Les bordures ainsi que la base sont fixées ensemble par de la colle à bois en plus de clous de finissions.
 Le choix de la mélamine comme matériau pour le toit s’explique par le fait qu’il est beaucoup plus mince que le bois en général.
-Vu que le toit s’enlève pour la maintenance du plateau, son épaisseur est importance pour que sa manipulation soit plus facile.
+Vu que le toit s’enlève pour la maintenance du plateau, son épaisseur est importante pour que sa manipulation soit plus facile.
 La fixation des verres dans la base est nécessaire, car pour être en mesure de bien détecter une balle, les capteurs installés sur le côté des verres se doivent d’être immobiles.
 
 \subsection{Conception électrique}
@@ -323,12 +323,12 @@ Dans le circuit de la figure 2\todo{add ref to figure}, les DEL infrarouges sont
 Ces deux composants sont installés sur chacun des verres un en face de l’autre.
 Pour ce qui est de la DEL infrarouge, vu que la différence de potentiel à ses bornes varie typiquement autour de 1,2~V, une résistance de 430~$\omega$ est nécessaire dans le but de limiter le courant y circulant à 18~mA.
 \todo{add citation}
-Pour ce qui est de la photodiode, elle est branchée en sens contraire de sorte que la patte cathode soit connectée à l’alimentation positive du circuit.
+Pour ce qui est de la photodiode, elle est branchée en sens contraire de sorte que la cathode soit connectée à l’alimentation positive du circuit.
 \todo{add citation}
 L’utilisation d’une DEL infrarouge comme émetteur plutôt que toute autre DEL est due au fait que son rayonnement est invisible à l'oeil nu.
 La photodiode est choisie pour capter les rayons infrarouges, car elle réagit très fortement à une faible variation de rayon la traversant.
 Cette caractéristique est très importants dû au fait que c’est une balle de ping-pong qui coupe les rayons dans le verre.
-Même si ce n’est pas ce qui est de meilleur pour couper effectivement les rayons infrarouges, la balle réussie quand même à couper une partie des rayons et une photodiode sera plus sensible à ce faible changement qu’une photo transistor par exemple.
+Même si ce n’est pas ce qui est de meilleur pour couper effectivement les rayons infrarouges, la balle réussie quand même à couper une partie des rayons et la photodiode sera plus sensible à ce faible changement qu’un phototransistor par exemple.
 
 \subsubsection{Modulation du signal d’entrée}
 
@@ -350,12 +350,12 @@ Le composant faisant passer la tension d’alimentation 9V-2 à 5~V est un régu
 \todo{add citation}
 Vu que la tension à l’entrée (+) de l’ampli-op est presque nulle, la tension de référence Vref posée est de 0,5~V.
 Cette tension est créée par un diviseur de tension alimenté à 5~V comprenant une résistance de 91~k$\omega$ et 10~k$\omega$.
-Pour que le courant provenant de la photodiode se transforme en signal entré, celui-ci doit passer à travers une résistance de 150~k$\omega$ pour qu’il y aille une tension de 5~V à ses bornes si le courant la traversant est de 35~$\mu$A lorsque les rayons infrarouges ne sont pas coupés.
+Pour que le courant provenant de la photodiode se transforme en signal d'entré, celui-ci doit passer à travers une résistance de 150~k$\omega$ pour qu’il y aille une tension de 5~V à ses bornes si le courant la traversant est de 35~$\mu$A lorsque les rayons infrarouges ne sont pas coupés.
 En réalité, la tension à ses bornes varie entre 0,65~V à 1,2~V selon chaque verre dû à l’enlignement des diodes infrarouges avec les photodiodes.
 De plus, lorsqu’une balle coupe les rayons, la tension s’abaisse à une valeur variante entre 0,2~V à 0,4~V selon chaque verre.
 Dans chacun des cas, les tensions aux bornes des résistances sont cohérentes par rapport à Vref.
 
-Dans ce dernier circuit, il était préférable d’utiliser un ampli-op agissant en comparateur au lieu d’un vrai comparateur dû au fait que la sortie de l’ampli-op est tant PNP que NPN tandis que la sortie du comparateur est seulement NPN.
+Dans ce dernier circuit, il était préférable d’utiliser un ampli-op agissant en comparateur au lieu d’un vrai comparateur dû au fait que la sortie de l’ampli-op est tant en PNP qu'en NPN tandis que la sortie du comparateur est seulement NPN.
 \todo{add citation}
 En effet, vu que la sortie de l’amplificateur se connecte directement l’Arduino, il est préférable d’utiliser un composant PNP, car celui-ci ne nécessite pas l’ajout d’une résistance en amont de la sortie permettant au courant de circuler.
 Pour ce qui est des régulateurs de tension LM7805, leurs utilisations sont justifiées par le fait que ce type de composant n’est pas affecté par le courant circulant dans les amplificateurs et ils régulent la tension qu’ils reçoivent en entrée, peu importe sa valeur pourvu qu’elle soit supérieure à 7~V, car celui-ci comporte une perte de deux volts.
@@ -366,18 +366,17 @@ Ce circuit est monté sur une plaquette de prototypage se situant à l’intéri
 \subsubsection{Signal de sortie}
 
 La dernière partie de la conception est celle contrôlant le signal du circuit de sortie.
-Ainsi, lorsque l’Arduino ne reçoit plus 5~V en entrée d’un des verres, celui-ci envoie un signal de 5~V dont le but sera d’alimenter une des DEL bleues se trouvant sur le toit du plateau.
+Ainsi, lorsque l’Arduino ne reçoit plus 5~V en entrée d’un des verres, celui-ci envoie un signal de 5~V dont le but sera d’alimenter une des DELs bleues se trouvant sur le toit du plateau.
 Le circuit de ces DEL est présenté sur la figure 6\todo{add ref to figure}.
 
 \todo[inline]{add figures: Circuit de sortie du Arduino}
 
 Sur la figure 4\todo{add ref to figure} ci-dessus, il y a une résistance de 390~$\omega$ en série avec chacune des DEL, car la tension aux bornes de ce type de DEL varie typiquement autour de 3,2~V.
 \todo{ass citation}
-Ainsi, ces Résistances limitent le courant circulant dans les DEL à environ 4,6~mA.
+Ainsi, ces résistances limitent le courant circulant dans les DEL à environ 4,6~mA.
 Les DEL de couleurs bleues ont été choisies tout simplement parce qu’elles sont belles et qu’elles brillent bien de façon générale.
 Elles agissent comme témoins lumineux lorsque l’Arduino détecte qu’il y a une balle dans un des verres.
 Ce circuit est également monté sur la plaquette de prototypage du boitier électrique.
-Malheureusement, le transfert du signal vers l’Arduino du robot avec l’aide de modules Bluetooth a été laissé tomber par manque de temps.
 
 \subsection{Conception logiciel}
 \todoWho{Thierry}
@@ -386,17 +385,17 @@ Malheureusement, le transfert du signal vers l’Arduino du robot avec l’aide 
 
 \todo[inline]{add Diagramme d’activité}
 
-Pour les verres, il fallait programmer l' Arduino Mega 2560 qui a été utilisé.
+Pour les verres, il fallait programmer l'Arduino Mega 2560 qui a été utilisé.
 Cette programmation était relativement simple.
-Six des entrées digitales (configurées en entrées) de l'Arduino étaient connectées aux verres, ces entrées sont les pins 22 à 32.
+Six des entrées digitales (configurées en entrées) de l'Arduino étaient connectées aux verres, ces entrées sont les broches 22 à 32.
 Ces entrées sont par incrément de 2, ce qui totalise les six verres.
-Six autres entrées digitales (configurées en sortie) étaient connectées aux LEDS, ceux-ci sont les entrées 1 à 7.
-Lors de la configuration de l'Arduino (init), une tension de cinq volts par sorties digitales est envoyé pour allumer les LEDS.
+Six autres entrées digitales (configurées en sortie) étaient connectées aux DELs, ceux-ci sont les entrées 1 à 7.
+Lors de la configuration de l'Arduino (init), une tension de cinq volts par sorties digitales est envoyé pour allumer les DELs.
 Ensuite, le programme passe à la boucle.
-La boucle (loop) vérifie si les verres ont été réussis.
+La boucle (loop) vérifie si une balles est entrée dans les verres.
 Le programme sait lorsqu'un verre est réussi en vérifiant les entrées digitales 22 à 32.
-Lorsque l'entrée ne détecte plus de tension, un message est envoyé pour fermer la LED correspondante.
-Les LEDS ont été organisées pour que chaque incrément correspond au bon verre.
+Lorsque l'entrée ne détecte plus une tension de 5 V, un message est envoyé pour fermer la DEL correspondante.
+Les DELs ont été organisées pour que chaque sortie corresponde au bon verre.
 Par exemple, la LED 22 est reliée à l’entrée 1, la LED 24 est reliée à l’entrée 2 etc.
 
 \section{Conception de l'application}
