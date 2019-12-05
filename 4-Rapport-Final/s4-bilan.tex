@@ -1,16 +1,34 @@
 \section{Bilan de la conception}
-\todoWho{Tous, à la fin}
 
 \todoGeneric{1 à 2 pages de bilan}
 
-\todoPoints{Comment votre prototype se comporte finalement?}
+Futur : se créer notre propre app pour ne pas dépendre des autres
 
-\todoPoints{Quelles sont les différences avec ce que vous aviez planifié?}
+\subsection{Comportement du prototype}
+
+Notre robot est muni d’un canon muni d’un moteur DC sans balai servant à propulser une balle de ping-pong.
+Un servomoteur fait avancer la crémaillère qui pousse la balle vers la roue pour la tirer en direction des verres.
+Le robot peut se déplacer de gauche à droite pour ajuster la direction du tir et la vitesse du moteur peut être augmenté ou diminuer pour ajuster la distance du tire.
+Le tout est contrôlé par un téléphone cellulaire à travers un application Android qui communique avec le robot via une communication Bluetooth.
+Un bouton sur l’interface sert aussi à activer les deux moteurs tirer la balle lorsque désiré.
+Les verres sont situés plus loin sur une plateforme intelligente qui détecte dans quel verre la balle est entrée.
+Pour ce faire, une DEL infrarouge et une photodiode sont situé une en face de l’autre dans chacun des verres et ainsi lorsqu’une balle coupe le faisceau la tension de sortie de la photodiode est plus faible.
+Six DELs bleus sont situées sur le dessus de la plateforme pour informer l’utilisateur dans quel verre la balle est rentrée.
+
+\todoDone{Quelles sont les différences avec ce que vous aviez planifié?}
+
+La principale différence avec ce que nous avions planifié est qu’il n’y a finalement pas de communication entre la plateforme de verres et le robot.
+Ainsi, le robot ne peut pas savoir lorsqu’il a réussi un tir et ne peut donc pas célébrer en dansant comme planifié au début de las session.
+De plus, le robot devait être contrôler à l’aide d’une manette que nous devions concevoir, mais finalement il est contrôlé via une application Android.
+Nous avons également laisser tomber le mode autonome du robot pour se déplacer et tirer les balles.
 
 \todoPoints{Quel effort le projet vous a demandé (temps, argent, etc.)?}
 
 \todoPoints{Quelles sont ses points forts? Ses points à améliorer?}
 
-\todoPoints{Que feriez-vous si vous aviez plus de temps ou plus de budget?}
+\todoDone{Que feriez-vous si vous aviez plus de temps ou plus de budget?}
+
+Avec plus de temps nous rajouterions une communication Bluetooth entre les verres et le robot comme planifié en début de session.
+De plus, nous développerions notre propre application pour contrôler le robot au lieu de dépendre de l’application (***rentrer nom appli***) actuellement utilisé.
 
 \todoPoints{Ajouter toutes réflexions pertinentes.}
