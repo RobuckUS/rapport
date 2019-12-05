@@ -9,10 +9,10 @@ Le lanceur de balles est une partie très importante du projet,
 car il doit être capable de faire ce qu’il est conçu de façon consistante pour faciliter son utilisation.
 Il se sépare en 3 parties principales: la partie propulsion, la partie recharge ainsi que la partie visé.
 
-\subsection{Mode de propulsion}
+\subsubsection{Mode de propulsion}
 Pour la propulsion de la balle, trois systèmes ont été étudiés pour assurer une certaine précision tout en gardant le système simple.
 
-\paragraph{Option 1: par contact}
+\paragraph{Option 1 (par contact)}
 Nous avons pensé à un système comprimant un ressort à l’aide d’un boîte de vitesse et d’une crémaillères.
 Ce système à vite été écarté puisque nous ne savions pas si les pièces, principalement imprimées en PLA, allaient être capable de supporter l'énergie emmagasinée dans le ressort.
 De plus, il aurait fallu avoir une façon de placer les balles à la bonne distance du ressort et les faire tenir en place avant le contact, ce qui aurait compliqué les choses rapidement.
@@ -20,19 +20,19 @@ Un solénoïde à aussi été envisagé pour frapper la balle, mais nos connaiss
 
 \todo{(Placer photo croquis)}
 
-\paragraph{Option 2.1: par piston}
+\paragraph{Option 2.1 (par piston)}
 Un système comparable à ce que l’on retrouve dans les jouets de type “Airsoft” à aussi été étudié.
 Ce système consiste encore une fois à comprimer un ressort attaché à un piston pour créer une différence de pression entre le devant et le derrière de la balle, la propulsant vers l’avant.
 Ce système comporte les mêmes désavantages que la première option, en plus des problèmes d’étanchéité que peuvent apporter les pièces imprimées.
 Il a donc été écarté.
 
-\paragraph{Option 2.2: par air comprimée.}
+\paragraph{Option 2.2 (par air comprimée)}
 Nous avons pensé à remplacer le piston par une pompe à air et un réservoir pressurisé.
 Sachant que l’air comprimé peut être très dangereux si le système échoue, et que nous allions être en présence de famille lors des démonstrations, cette option était donc une mauvaise idée.
 De plus, un système comme celui-ci aurait été beaucoup plus compliqué que le système final choisi.
 \todo{(Placer photo croquis)}
 
-\paragraph{Choix final: Roue d’inertie.}
+\paragraph{Option finale (roue d’inertie)}
 Nous avons donc opté pour une roue d’inertie pour propulser nos balle.
 L’idée est venue des jouets de la marque NERF, qui utilisent 2 roues tournant en sens inverse pour propulser des fléchettes de mousse sur une distance acceptable.
 Ce système est aussi assez simple, puisqu’il requiert seulement un moteur pouvant tourner à une vitesse contrôlable et d’une roue d’inertie.
@@ -41,22 +41,22 @@ Dans notre cas, nous ne voulions pas briser la balle, il a donc fallu rajouter u
 
 \todo{(Placer photo de la roue)}
 
-\subsection{Méthode de chargement de la balle}
+\subsubsection{Méthode de chargement de la balle}
 Quelques méthode pour pousser les balles vers la roue d’inertie ont étés envisagées.
 Voici les trois options principales.
 
-\paragraph{Option 1: Par gravité}
+\paragraph{Option 1 (par gravité)}
 Nous avons pensé à utiliser la gravité pour pousser les balles sous la roue d’inertie pour simplifier le système.
 ce système aurait seulement eu besoin d’un servo pour assurer qu’une seule balle tombe à la fois dans le lanceur.
 Cependant, le système de roue d’inertie fait que la distance entre la roue et la base du lanceur est plus petit qu’une balle (pour que la balle soit pressée dans la mousse, assurant un transfert d’énergie suffisant pour la propulser.
 La gravité n’avait donc pas la force nécessaire pour enfoncer la balle sous la roue.
 
-\paragraph{Option 2: came et tige-poussoir.}
+\paragraph{Option 2 (avec came et tige-poussoir)}
 Nous voulions nous servir d’un servo pour gérer le chargement, car ils sont simple à utiliser et assez précis pour nos besoins.
 Le débattement nécessaire pour amener les balles de la position ou les balles sont placées jusqu’en dessous de la roue est d’environ 75 mm (les balles faisant 40mm de diamètre et en ajoutant quelques millimètres pour assurer la solidité du lanceur).
 Les servos allant seulement de 0 à 180 degrés, il aurait fallu une camme d’au moins 75 mm de diamètre pour accommoder ce débattement, ce qui aurait été beaucoup trop gros en comparaison au lanceur.
 
-\paragraph{Option 3: pignon et crémaillère}
+\paragraph{Option 3 (avec pignon et crémaillère)}
 Cet option est parfaite, puisqu’elle règle le seul problème que la came avait: la dimension des roues.
 En se servant des CADs fournies par McMaster.com, il a été facile de trouver des pièces de dimensions adéquates pour notre système.
 Un pignon ayant un diamètre primitif de 1 pouce ayant 20 dents et sa crémaillère répondaient parfaitement à nos critères de dimensions.
@@ -73,7 +73,7 @@ Les roues de 12 et 24 dents ont donc étés choisies car elles etait de bonne di
 \end{figure}
 \todo{add a description to the figure}
 
-\subsection{Mode de visé}
+\subsubsection{Mode de visé}
 Plusieurs options s’offraient à nous pour visé avec le lanceur.
 La première étant de jouer avec l’angle du lanceur pour aller chercher différentes distance (pour atteindre tous les verres de beer pong).
 Cette option a été écartée puisque nous ne savions pas le poids finale du lanceur et si un servo allait être capable de le maintenir en place de façon constante.
@@ -89,7 +89,7 @@ Nous avons donc conçue un un support ayant un arc de cercle ce qui nous a permi
 
 La distance des lancers allait donc être déterminée par la vitesse à laquelle la roue d’inertie tourne, ainsi que la pression qu’elle applique sur les balles.
 
-\subsection{Version finale}
+\subsubsection{Version finale du protype}
 La version finale allait donc être un lanceur fixe rechargé par une crémaillère, qui propulse les balles à l’aide d’une roue d’inertie.
 Notre Première itération comportait une grande rampe pour assurer que les balles aient un maximum de temps en contact avec le lanceur pour augmenter la précision.
 Cette idée de rampe a été abandonnée lorsque nous avons réalisé de qu’elle ampleur elle devait être pour répondre à nos besoins (un arc de cercle d’environ 150 mm de rayon, pour assurer un arc de cercle assez graduel.
@@ -174,7 +174,7 @@ Nous nous sommes servis de ces caractéristique pour décortiquer notre lanceur 
 
 \todo{ajouter photo monté}
 
-\subsection{Électronique}
+\subsection{Conception électronique}
 \todoWho{Jordan}
 
 Puisque la méthode de lancer choisi est la roue d’inertie et la méthode de chargement est avec un pignon et une crémaillère, nous devions intégrer au montage un moteur DC et un servomoteur.
@@ -215,7 +215,7 @@ Il y a deux fils pour l’alimentation, et deux fils pour la réception et la tr
 Le module marche à des tensions de 3,3~V c’est pourquoi il y a le diviseur de tension à l’entrée RXD du module suggéré sur le site \cite{noauthor_setting_nodate}.
 L’alimentation est toutefois branchée au 5~V, car il y a un régulateur interne sur le module Bluetooth pour passer de 5~V à 3,3~V.
 
-\subsection{Logiciel}
+\subsection{Conception logiciel}
 \todoWho{Thierry}
 
 \todo[inline]{add pseudocode}
@@ -401,7 +401,7 @@ Par exemple, la LED 22 est reliée à l’entrée 1, la LED 24 est reliée à l�
 
 \section{Conception de l'application}
 
-\subsection{Logiciel}
+\subsection{Conception logiciel}
 \todoWho{Thierry}
 
 C’était la première fois que nous programmions une application Android, c’est pourquoi nous avons choisi d’utiliser Mit App Inventor.
