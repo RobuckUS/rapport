@@ -3,9 +3,9 @@
 
 \todoGeneric{2 à 4 pages de tests}
 
-\todoGeneric[inline]{Présentation du ou des plans de tests et des résultats.}
-
-\todoDoing{Ajouter les plan de teste}
+Tout au long de la conception du protype, plusieurs tests ont été effectués.
+Parmi ceux-ci, nous avons effectué des tests unitaires, des tests d'intégration et des tests des cas limites.
+Les tests les plus pertinents sont présentés dans les paragraphes qui suivent.
 
 \subsection{Tests unitaires}
 
@@ -32,21 +32,19 @@ Notre robot peut se déplacer de d’avant ou d’arrière, mais il fallait savo
 Lors du test, nous avons remarqué que le poid du lanceur sur la petite roue arrière créais le blocage de celle-ci lorsqu’elle tourne sur elle-même et donc lorsque le robot arrête et repart, cette roue crée un déplacement latéral indésirable qui change la trajectoire du robot.
 Pour remédier à la situation, nous avons installé un support qui empêche la roue de tourner sur elle-même se qui permet au robot de tenir une trajectoire plus droite.
 Puisque le robot et le système de verre sont éloigner d’environ 2,5 mètres un test sur la vitesse du moteur permettant à la balle d’atteindre les verres à été fait.
-Nous savons que le temps minimal de l’impulsion envoyer «ESC» pour que le moteur puisse lancer une balle est de 1100~$\mu$s et qu’à 1150~$\mu$s le robot lance au-dessus de 3 mètre.
+Nous savons que le temps minimal de l’impulsion envoyer \emph{ESC} pour que le moteur puisse lancer une balle est de 1100~$\mu$s et qu’à 1150~$\mu$s le robot lance au-dessus de 3 mètre.
 Nous voulions avoir environ 10 vitesses possible pour l’utilisateur, alors nous avons décidé de faire des bonds de 5~$\mu$s entre ces deux valeurs.
 
 \subsection{Tests d'intégration}
 
-Ensuite des tests intégrant tous les modules ensemble ont été effectué afin de s’assurer que tout fonctionne lorsque le prototype est fini.
-Voici quelques exemples de tests effectués
+Ensuite des tests intégrant tous les modules ensemble ont été effectué afin de s’assurer que tout fonctionne lorsque le prototype est terminé.
+Voici quelques exemples de tests effectués.
 
 \todo[inline]{add tableau: exemple de plan de test intégrateur}
 
-\subsection{Tests de cas limites}
+\subsection{Tests des cas limites}
 
 Les derniers tests effectués sont des tests de cas limite, c’est-à-dire les limites du prototype.
-Nous avons testé le nombre d’impulsions minimales et maximales envoyer au ESC du moteur pour lancer une balle, le nombre de balles pouvant être lancé sans remplir le réservoir, la distance maximale entre l’application et le robot afin que le robot effectue encore les commandes demandées, la tension minimale pour allumer une DEL ainsi que la hauteur maximal et minimal de la roue propulsant la balle.
+Nous avons testé le nombre d’impulsions minimales et maximales envoyer au \emph{ESC} du moteur pour lancer une balle, le nombre de balles pouvant être lancé sans remplir le réservoir, la distance maximale entre l’application et le robot afin que le robot effectue encore les commandes demandées, la tension minimale pour allumer une DEL ainsi que la hauteur maximal et minimal de la roue propulsant la balle.
 
-\todo{Add tableau: plan de test de cas limites}
-
-Quelques autres tests ont été fait, mais ceux-ci sont vraiment les plus pertinents.
+\todo[inline]{Add tableau: plan de test de cas limites}
