@@ -191,10 +191,22 @@ Nous nous sommes servis de ces caractéristique pour décortiquer notre lanceur 
 \subsubsection{Logiciel}
 \todoWho{Thierry}
 
-\todoPoints{Vous y joindrez tous les documents nécessaires (croquis, schémas électriques, ordinogrammes, calculs, etc.) pour expliquer vos choix.}
-\todoPoints{Justifier vos choix.}
-\todoPoints{Mentionner les performances et les limitations du prototype.}
+\todo{add pseudocode}
 
+\todo{add Diagramme d’activité}
+
+Pour les verres, il fallait programmer le Arduino Mega 2560 qui a été utilisé.
+Cette programmation était relativement simple.
+Six des entrées digitales (configurées en entrées) de l'Arduino étaient connectées aux verres, ces entrées sont les pins 22 à 32.
+Ces entrées sont par incrément de 2, ce qui totalise les six verres.
+Six autres entrées digitales (configurées en sortie) étaient connectées aux LEDS, ceux-ci sont les entrées 1 à 7.
+Lors de la configuration du Arduino (init), une tension de cinq volts par sorties digitales est envoyé pour allumer les LEDS.
+Ensuite, le programme passe à la boucle.
+La boucle (loop) vérifie si les verres ont été réussis.
+Le programme sait lorsqu'un verre est réussi en vérifiant les entrées digitales 22 à 32.
+Lorsque l'entrée ne détecte plus de tension, un message est envoyé pour fermer la LED correspondante.
+Les LEDS ont été organisées pour que chaque incrément correspond au bon verre.
+Par exemple, la LED 22 est reliée à l’entrée 1, la LED 24 est reliée à l’entrée 2 etc…
 
 \subsubsection{Mécanique}
 \todoWho{Vincent}
