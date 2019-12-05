@@ -1,12 +1,8 @@
-\section{Conception}
-
 \todoGeneric{10 à 15 pages de conception}
 
-\todoGeneric[inline]{Intro de la section conception}
+\section{Conception du robot}
 
-\subsection{Robot}
-
-\subsubsection{Électronique}
+\subsection{Électronique}
 \todoWho{Jordan}
 
 Puisque la méthode de lancer choisi est la roue d’inertie et la méthode de chargement est avec un pignon et une crémaillère, nous devions intégrer au montage un moteur DC et un servomoteur.
@@ -47,7 +43,7 @@ Il y a deux fils pour l’alimentation, et deux fils pour la réception et la tr
 Le module marche à des tensions de 3,3~V c’est pourquoi il y a le diviseur de tension à l’entrée RXD du module suggéré sur le site \cite{noauthor_setting_nodate}.
 L’alimentation est toutefois branchée au 5~V, car il y a un régulateur interne sur le module Bluetooth pour passer de 5~V à 3,3~V.
 
-\subsubsection{Logiciel}
+\subsection{Logiciel}
 \todoWho{Thierry}
 
 \todo[inline]{add pseudocode}
@@ -87,7 +83,7 @@ Durant cette action, le moteur sans balai part sa puissance à la vitesse demand
 Donc, lorsque la balle est poussée dans la roue de mousse reliée au moteur sans balai, la balle est propulsée et l’Arduino envoie comme message de fermé le moteur DC.
 Au départ, nous voulions laisser le moteur sans balai rouler en tout temps, cependant par souci d’économie d’énergie et pour que le système soutenant le moteur s’use moins rapidement, nous avons décidé de le partir uniquement lorsque l’Arduino reçoit la commande de tirer.
 
-\subsubsection{Mécanique}
+\subsection{Mécanique}
 \todoWho{Will}
 
 Le lanceur de balles est une partie très importante du projet,
@@ -97,7 +93,7 @@ la partie propulsion,
 la partie recharge ainsi que
 la partie visé.
 
-\subsubsection{Mode de propulsion}
+\subsection{Mode de propulsion}
 Pour la propulsion de la balle, trois systèmes ont été étudiés pour assurer une certaine précision tout en gardant le système simple.
 
 \paragraph{Option 1: par contact}
@@ -129,7 +125,7 @@ Dans notre cas, nous ne voulions pas briser la balle, il a donc fallu rajouter u
 
 \todo{(Placer photo de la roue)}
 
-\subsubsection{Méthode de chargement de la balle}
+\subsection{Méthode de chargement de la balle}
 Quelques méthode pour pousser les balles vers la roue d’inertie ont étés envisagées.
 Voici les trois options principales.
 
@@ -161,7 +157,7 @@ Les roues de 12 et 24 dents ont donc étés choisies car elles etait de bonne di
 \end{figure}
 \todo{add a description to the figure}
 
-\subsubsection{Mode de visé}
+\subsection{Mode de visé}
 Plusieurs options s’offraient à nous pour visé avec le lanceur.
 La première étant de jouer avec l’angle du lanceur pour aller chercher différentes distance (pour atteindre tous les verres de beer pong).
 Cette option a été écartée puisque nous ne savions pas le poids finale du lanceur et si un servo allait être capable de le maintenir en place de façon constante.
@@ -170,7 +166,7 @@ Nous avons donc conçue un un support ayant un arc de cercle ce qui nous a permi
 \missingfigure{support de visé}
 La distance des lancers allait donc être déterminée par la vitesse à laquelle la roue d’inertie tourne, ainsi que la pression qu’elle applique sur les balles.
 
-\subsubsection{Version finale}
+\subsection{Version finale}
 La version finale allait donc être un lanceur fixe rechargé par une crémaillère, qui propulse les balles à l’aide d’une roue d’inertie.
 Notre Première itération comportait une grande rampe pour assurer que les balles aient un maximum de temps en contact avec le lanceur pour augmenter la précision.
 Cette idée de rampe a été abandonnée lorsque nous avons réalisé de qu’elle ampleur elle devait être pour répondre à nos besoins (un arc de cercle d’environ 150 mm de rayon, pour assurer un arc de cercle assez graduel.
@@ -244,16 +240,132 @@ Nous nous sommes servis de ces caractéristique pour décortiquer notre lanceur 
 
 \todo{ajouter photo monté}
 
-\subsection{Verre}
+\section{Conception du système de verres}
 
-\subsubsection{Électronique}
+Le système de verres est ce qui reçoit les balles lancées par le lanceur de balles.
+C’est un système composé d’un plateau où sont déposés six verres.
+Dans chacun de ces verres, il y a un capteur détectant la présence d’une balle ou non et le signal de ces capteurs sera transmis au robot en continu par une communication Bluetooth avec l’aide d’un microcontrôleur Arduino méga2560.
+Dans ce projet, tous les schémas électriques du système de verres sont faits avec le logiciel \emph{KiCad} et la conception mécanique est faite avec le logiciel \emph{SolidWorks}.
+
+\subsection{Conception mécanique}
 \todoWho{Vincent}
 
-\todoPoints{Vous y joindrez tous les documents nécessaires (croquis, schémas électriques, ordinogrammes, calculs, etc.) pour expliquer vos choix.}
-\todoPoints{Justifier vos choix.}
-\todoPoints{Mentionner les performances et les limitations du prototype.}
+La partie mécanique du système de verre comprend la conception du plateau ainsi que tout ce qu’il y est fixé, soit les verres, le boitier électrique ainsi que le toit.
+Le plateau est composé d’une base carrée en bois dont les côtés ont quatorze pouces et demi de longueur.
+Sur chaque côté de la base, il y a des bordures de deux pouces demis de haut par trois-quarts de pouce de largeur.
+Il y a également six verres fixés sur la base formant un triangle.
+Ensuite, sur trois des quatre bordures il y a des supports où est déposé le toit du plateau.
+Celui-ci est fait en mélamine et il comporte six troue de quatre pouces de diamètre alignés avec les verres.\todo{add citation}
+Finalement, le boitier électrique est fixé sur l’extérieur de la bordure droite 3 pouces.
+L’image \todo{add ref to figure} ci-dessous illustre l’allure finale du plateau de verres.
 
-\subsubsection{Logiciel}
+\todo[inline]{add image: Plateau de verres}
+
+Pour être en mesure de bien effectuer sa conception, il a fallu répondre à certaines contraintes.
+Celles-ci sont que le plateau doit avoir une belle esthétique tout en étant assez gros pour contenir six verres, assez petit pour être en mesure de le déplacer et de le ranger facilement, fait de façon à rendre accessible tout ce qui est d’électronique à l’intérieur.
+De plus, le coût de réalisation ne devait pas être trop élevé vu le statut d’étudiant des membres de l’équipe.
+
+La base ainsi que les bordures du plateau auraient pu être imprimées à partir d’une imprimante 3D, mais les dimensions sont très grandes rendant le coût de son impression très élevé dû au prix du plastique ABS.
+Aussi, l’utilisation de ce type d’imprimante n’est pas justifiée dû au fait que le plateau comporte peux détailles.
+Ensuite, parce que son coût est très faible, le bois a été choisi pour le matériau du plateau.
+Les bordures ainsi que la base sont fixées ensemble par de la colle à bois en plus de clous de finissions.
+Le choix de la mélamine comme matériau pour le toit s’explique par le fait qu’il est beaucoup plus mince que le bois en général.
+Vu que le toit s’enlève pour la maintenance du plateau, son épaisseur est importance pour que sa manipulation soit plus facile.
+La fixation des verres dans la base est nécessaire, car pour être en mesure de bien détecter une balle, les capteurs installés sur le côté des verres se doivent d’être immobiles.
+
+\subsection{Conception électrique}
+\todoWho{Vincent}
+
+La conception électrique du système de verres est faite en quatre parties.
+La première est le circuit d’alimentation du système, la deuxième est la conception du capteur qui détecte les balles dans les verres, la troisième est la conception du circuit permettant la gestion du signal d’entrée du capteur à l'Arduino et la quatrième partie est le circuit effectuant la gestion du signal sortie provenant de l’Arduino.
+
+\subsubsection{Alimentation}
+
+L’alimentation électrique du système de verres se fait à 9~V, car il s’agit du standard pour ce type de circuit électronique.
+Le circuit d’alimentation est illustré dans les figures ci-dessous\todo{add ref to figure}.
+
+\todo[inline]{add figures:Circuit d’alimentation 9V et Alimentation Arduino mega2560 R3}
+
+L’alimentation 9~V provient de deux piles 9~V alimentant chacune deux parties différentes du système.
+Dans la figure 1\todo{add ref to figure}, elles se nomment 9V-1 et 9V-2.
+La première alimentation alimente tous les circuits électriques du plateau de verres et la deuxième alimente l’Arduino.
+De plus, chacune des bornes négatives est connectée ensemble pour que le circuit aille le même commun.
+Les interrupteurs présentent dans le circuit de la figure ont comme fonction de faire commuter la tension des piles vers leurs circuits respectifs.
+Les diodes électroluminescentes vertes (DEL) servent de témoins lumineux indiquant l’état des circuits du plateau ainsi que de l’Arduino.
+Ces DEL sont chacune en série avec une résistance limitant le courant traversant les DEL à 10,3~mA, car la différence de potentiel aux bornes de ce type de DEL varie autour de 2~V normalement.\todo{add citation}
+Il est préférable d’utiliser deux piles plutôt qu’une pour augmenter la durée de vie des batteries.
+Ce circuit se situe dans le boitier électrique.
+
+\subsubsection{Capteurs}
+
+Les capteurs sont la partie centrale du système de verre.
+Leurs circuits sont alimentés à 9~V et sont composés d’une DEL à rayonnement infrarouge pointée vers une photodiode filtrée pour ne laisser passer que les rayons infrarouges.
+Ce circuit est illustré schématiquement par la figure ci-dessous \todo{add ref to figure} et il est monté sur une plaquette de prototypage située à l’intérieur du plateau de verres.
+
+\todo[inline]{add figures: Circuit du capteur}
+
+Dans le circuit de la figure 2\todo{add ref to figure}, les DEL infrarouges sont représentées par IR\_D et les photodiodes par PD.
+Ces deux composants sont installés sur chacun des verres un en face de l’autre.
+Pour ce qui est de la DEL infrarouge, vu que la différence de potentiel à ses bornes varie typiquement autour de 1,2~V, une résistance de 430~$\omega$ est nécessaire dans le but de limiter le courant y circulant à 18~mA.
+\todo{add citation}
+Pour ce qui est de la photodiode, elle est branchée en sens contraire de sorte que la patte cathode soit connectée à l’alimentation positive du circuit.
+\todo{add citation}
+L’utilisation d’une DEL infrarouge comme émetteur plutôt que toute autre DEL est due au fait que son rayonnement est invisible à l'oeil nu.
+La photodiode est choisie pour capter les rayons infrarouges, car elle réagit très fortement à une faible variation de rayon la traversant.
+Cette caractéristique est très importants dû au fait que c’est une balle de ping-pong qui coupe les rayons dans le verre.
+Même si ce n’est pas ce qui est de meilleur pour couper effectivement les rayons infrarouges, la balle réussie quand même à couper une partie des rayons et une photodiode sera plus sensible à ce faible changement qu’une photo transistor par exemple.
+
+\subsubsection{Modulation du signal d’entrée}
+
+Le fonctionnement d’une photodiode se fait en laissant passer un courant maximum en 35~$\mu$A en sens inverse lorsqu’elle est illuminée par la DEL infrarouge.\todo{add citation}
+Ce courant se transforme éventuellement en signal d’entrée pour le microcontrôleur.
+Ce circuit est illustré sur la figure ci-dessous.\todo{add ref to fig}
+\todo{add citation}
+
+\todo[inline]{add figures: Circuit modulant signal d’entrée}
+
+Dans la figure 5\todo{add refto figure}, ce qui fait la transformation du signal provenant des capteurs en signal d’entrée digital pour l’Arduino est six amplificateurs opérationnels (ampli-op) MPC602 agissant en comparateur, soit un par verre.
+Ceux-ci laissent soit passer 0~V, lorsqu’il n’y a pas de balle dans un des verres, ou 5~V lorsqu’une balle vient couper les rayons infrarouges.
+\todo{add citation}
+Pour se faire, le signal provenant du capteur doit se connecter à la borne (-) de l’ampli-op et la tension de référence (Vref) à la borne (+).
+Aussi, pour être compatible avec l’Arduino, l’amplificateur opérationnel doit donner en sortie une tension de 5~V.
+\todo{add citation}
+Les ampli-op doivent donc être alimentés à 5~V.
+Le composant faisant passer la tension d’alimentation 9V-2 à 5~V est un régulateur de tension 5~V LM7805.
+\todo{add citation}
+Vu que la tension à l’entrée (+) de l’ampli-op est presque nulle, la tension de référence Vref posée est de 0,5~V.
+Cette tension est créée par un diviseur de tension alimenté à 5~V comprenant une résistance de 91~k$\omega$ et 10~k$\omega$.
+Pour que le courant provenant de la photodiode se transforme en signal entré, celui-ci doit passer à travers une résistance de 150~k$\omega$ pour qu’il y aille une tension de 5~V à ses bornes si le courant la traversant est de 35~$\mu$A lorsque les rayons infrarouges ne sont pas coupés.
+En réalité, la tension à ses bornes varie entre 0,65~V à 1,2~V selon chaque verre dû à l’enlignement des diodes infrarouges avec les photodiodes.
+De plus, lorsqu’une balle coupe les rayons, la tension s’abaisse à une valeur variante entre 0,2~V à 0,4~V selon chaque verre.
+Dans chacun des cas, les tensions aux bornes des résistances sont cohérentes par rapport à Vref.
+
+
+Dans ce dernier circuit, il était préférable d’utiliser un ampli-op agissant en comparateur au lieu d’un vrai comparateur dû au fait que la sortie de l’ampli-op est tant PNP que NPN tandis que la sortie du comparateur est seulement NPN.
+\todo{add citation}
+En effet, vu que la sortie de l’amplificateur se connecte directement l’Arduino, il est préférable d’utiliser un composant PNP, car celui-ci ne nécessite pas l’ajout d’une résistance en amont de la sortie permettant au courant de circuler.
+Pour ce qui est des régulateurs de tension LM7805, leurs utilisations sont justifiées par le fait que ce type de composant n’est pas affecté par le courant circulant dans les amplificateurs et ils régulent la tension qu’ils reçoivent en entrée, peu importe sa valeur pourvu qu’elle soit supérieure à 7~V, car celui-ci comporte une perte de deux volts.
+\todo{add citation}
+Finalement, dans le circuit de la figure 3\todo{add ref to figure}, les condensateurs C1 et C2 sont nécessaires, car ils diminuent le bruit dans le circuit.
+Ce circuit est monté sur une plaquette de prototypage se situant à l’intérieur du boitier électrique noir.
+
+\subsubsection{Signal de sortie}
+
+La dernière partie de la conception est celle contrôlant le signal du circuit de sortie.
+Ainsi, lorsque l’Arduino ne reçoit plus 5~V en entrée d’un des verres, celui-ci envoie un signal de 5~V dont le but sera d’alimenter une des DEL bleues se trouvant sur le toit du plateau.
+Le circuit de ces DEL est présenté sur la figure 6\todo{add ref to figure}.
+
+\todo[inline]{add figures: Circuit de sortie du Arduino}
+
+Sur la figure 4\todo{add ref to figure} ci-dessus, il y a une résistance de 390~$\omega$ en série avec chacune des DEL, car la tension aux bornes de ce type de DEL varie typiquement autour de 3,2~V.
+\todo{ass citation}
+Ainsi, ces Résistances limitent le courant circulant dans les DEL à environ 4,6~mA.
+Les DEL de couleurs bleues ont été choisies tout simplement parce qu’elles sont belles et qu’elles brillent bien de façon générale.
+Elles agissent comme témoins lumineux lorsque l’Arduino détecte qu’il y a une balle dans un des verres.
+Ce circuit est également monté sur la plaquette de prototypage du boitier électrique.
+Malheureusement, le transfert du signal vers l’Arduino du robot avec l’aide de modules Bluetooth a été laissé tomber par manque de temps.
+
+\subsection{Logiciel}
 \todoWho{Thierry}
 
 \todo[inline]{add pseudocode}
@@ -273,16 +385,9 @@ Lorsque l'entrée ne détecte plus de tension, un message est envoyé pour ferme
 Les LEDS ont été organisées pour que chaque incrément correspond au bon verre.
 Par exemple, la LED 22 est reliée à l’entrée 1, la LED 24 est reliée à l’entrée 2 etc.
 
-\subsubsection{Mécanique}
-\todoWho{Vincent}
+\section{Conception de l'application}
 
-\todoPoints{Vous y joindrez tous les documents nécessaires (croquis, schémas électriques, ordinogrammes, calculs, etc.) pour expliquer vos choix.}
-\todoPoints{Justifier vos choix.}
-\todoPoints{Mentionner les performances et les limitations du prototype.}
-
-\subsection{Application}
-
-\subsubsection{Logiciel}
+\subsection{Logiciel}
 \todoWho{Thierry}
 
 C’était la première fois que nous programmions une application Android, c’est pourquoi nous avons choisi d’utiliser Mit App Inventor.
