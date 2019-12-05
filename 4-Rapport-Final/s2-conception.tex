@@ -17,9 +17,42 @@
 \subsubsection{Logiciel}
 \todoWho{Thierry}
 
-\todoPoints{Vous y joindrez tous les documents nécessaires (croquis, schémas électriques, ordinogrammes, calculs, etc.) pour expliquer vos choix.}
-\todoPoints{Justifier vos choix.}
-\todoPoints{Mentionner les performances et les limitations du prototype.}
+\todo[inline]{add pseudocode}
+
+\todo[inline]{add Diagramme d’activité}
+
+La programmation du robot peut sembler compliqué, mais en réalité elle était très simple.
+L’application Android qui est conçue pour communiquer avec le robot envoie un chiffre en fonction de l’action que veut faire l’utilisateur.
+Par exemple, si l’utilisateurs appuie sur la balle pour tirer, le téléphone va communiquer avec le récepteur Bluetooth du robot en lui envoyant le chiffre 6.
+
+\todo[inline]{add image}
+
+Le chiffre envoyé est de type «char».
+Pour simplifier la compréhension du code, nous avons initialisé chacune des constantes et avons attribué une variable représentative.
+La \todo{insert reference (maybe figure)} représente chacune des constantes qui ont été initialisé.
+Ensuite, lors de la configuration de l'Arduino, le Bluetooth est initialisé avec les pins correspondantes.
+De plus, le moteur sans balai que nous avons utilisé est configuré comme un servo moteur, donc nous avons utilisé la classe MegaServo pour initialiser ce moteur.
+Les valeurs à rentrer en paramètre de la fonction ne sont pas des angles puisque c’est un moteur sans balais.
+Selon \cite{arduino_arduino_nodate} le contrôleur du moteur reçoit une impulsion entre 1000~$\mu$s et 2000~$\mu$s, c’est pourquoi nous utilisons ces valeurs.
+Dans ce cas, 1000 représente la valeur minimum c’est-à-dire que le moteur ne tourne pas, alors qu’à 2000, le moteur tourne à sa pleine capacité.
+Le servo moteur a été configurer avec la libraire LibRobus, qui nous a été offerte.
+
+La boucle vérifie à chaque fois si l’application a envoyé un message.
+Lorsqu’un message est reçu, l’Arduino exécute l’action demandé.
+L’action d’avancer et de reculer est très simple, elle consiste uniquement à configurer les 2 moteurs à 0,2~V pour avancer et à -0,2~V pour reculer.
+Nous avons jugé que l’utilisation du PID pour cette fonction n’était pas nécessaire, puisque le robot ne fait que de très petits mouvements.
+Ensuite, lorsque l’utilisateur relâche le bouton, un second message est envoyé au robot pour configurer les 2 moteurs à 0~V (les arrêter).
+
+Les trois prochaines conditions sont reliées au canon du robot.
+Lorsque l’utilisateurs demande un incrément de la vitesse du moteur, la variable forceMoteur est incrémentée de 5.
+Pour la condition où le joueur demande une décrémentation, la vitesse du moteur est décrémentée par 5.
+Pour la distance que nous désirions des verres, après quelques tests, nous avons réalisé que la vitesse optimale était entre 1150 et 1200.
+C’est pourquoi les 10 niveaux de forces du moteur se situent entre 1150 et 1200.
+Ensuite, lorsque le joueur appuie sur tirer, l’Arduino reçoit comme commande de tirer.
+L’angle du servo moteur est donc configurer pour reculer à son minimum, et retourner à son angle initial de 180 degrés.
+Durant cette action, le moteur sans balai part sa puissance à la vitesse demandée par l’utilisateur.
+Donc, lorsque la balle est poussée dans la roue de mousse reliée au moteur sans balai, la balle est propulsée et l’Arduino envoie comme message de fermé le moteur DC.
+Au départ, nous voulions laisser le moteur sans balai rouler en tout temps, cependant par souci d’économie d’énergie et pour que le système soutenant le moteur s’use moins rapidement, nous avons décidé de le partir uniquement lorsque l’Arduino reçoit la commande de tirer.
 
 \subsubsection{Mécanique}
 \todoWho{Will}
