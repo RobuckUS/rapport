@@ -2,87 +2,6 @@
 
 \section{Conception du robot}
 
-\subsection{Électronique}
-\todoWho{Jordan}
-
-Puisque la méthode de lancer choisi est la roue d’inertie et la méthode de chargement est avec un pignon et une crémaillère, nous devions intégrer au montage un moteur DC et un servomoteur.
-Ainsi le moteur choisi pour faire tourner la roue d’inertie servant à propulser la balle est un moteur DC sans balai.
-Nous avons opté pour ce type de moteur puisque le nombre de rotation par minute devait être suffisamment élevé pour propulser la balle assez loin et le torque devait également être suffisamment important pour éviter une obstruction lors du passage de la balle.
-L’un d’entre nous possédait chez lui un moteur pouvant servir au projet, c’est donc lui qu’on a utilisé.
-Il s’agit du moteur TrackStar 8.5T.
-
-\todo[inline]{add image}
-
-Puisque c’est un moteur sans balai, il ne suffit pas seulement d’appliquer une tension à ses bornes pour qu’il tourne.
-Nous avons donc acheté un contrôleur servant à faire tourner le moteur et à modifier la vitesse grâce à un signal d'entrée.
-Le contrôleur choisi est le ESC 30A.
-Ce contrôleur a comme entrées une alimentation qui doit être d’environ 7,4~V pour que le moteur fonctionne comme il se doit selon la fiche technique du moteur \cite{noauthor_trackstar_nodate} et trois autres fils qui doivent être branché sur l’Arduino.
-Ces trois fils doivent être branché au commun de l’Arduino, au 5~V et à une sortie pouvant produire un PWM soient les pins 2 à 13 de l’Arduino Mega.
-Les trois fils de sorties du contrôleur sont branchés directement sur les trois fils du moteur.
-Pour ce branchement il a été très important de vérifier que le commun de l’alimentation soit connecté au commun de l’Arduino.
-
-\todo[inline]{add image: Circuit d'alimentation et de contrôle du moteur DC sans balai}
-
-Par ailleurs, le moteur doit recevoir une tension d’alimentation de 7,4~V comme indiqué sur la figure\todo{make ref to figure}.
-Cependant, les seules prises d’alimentation sur le robot pouvant fournir un gros courant sont des prises de 5~V et 12~V.
-Ainsi, nous avons acheté un régulateur de tension de type buck pour pouvoir passer de 12~V à 7,4~V.
-Le régulateur de tension acheté est le VMA404 utilisant un LM2596, car c’était un modèle peu dispendieux disponible à la boutique Electro5 à Sherbrooke.
-Comme indiqué dans la prochaine figure\todo{Add ref to figure}, la tension d’entrée est de 12~V et en mesurant la tension de sortie avec un multimètre nous pouvons ajuster le potentiomètre pour avoir 7,4~V en sortie.
-
-\todo[inline]{add image: Régulateur de tension VMA404}
-
-Pour ce qui est du servomoteur, ce dernier est branché directement dans l’un des ports d’entrée sur la carte Robus conçu à cet effet.
-
-Ensuite, pour la communication Bluetooth, nous avons acheté le module HC-05, car c’était celui qui avait était suggéré par le technicien Serge lors du séminaire sur les capteurs.
-Son branchement est effectué comme à la prochaine figure\todo{Add ref to figure}.
-
-\todo[inline]{add image: Circuit de branchement du module Bluetooth HC-05}
-
-On voit donc sur la figure \todo{Add ref to figure} que le module a 4 fils de branchement.
-Il y a deux fils pour l’alimentation, et deux fils pour la réception et la transmission du signal.
-Le module marche à des tensions de 3,3~V c’est pourquoi il y a le diviseur de tension à l’entrée RXD du module suggéré sur le site \cite{noauthor_setting_nodate}.
-L’alimentation est toutefois branchée au 5~V, car il y a un régulateur interne sur le module Bluetooth pour passer de 5~V à 3,3~V.
-
-\subsection{Logiciel}
-\todoWho{Thierry}
-
-\todo[inline]{add pseudocode}
-
-\todo[inline]{add Diagramme d’activité}
-
-La programmation du robot peut sembler compliqué, mais en réalité elle était très simple.
-L’application Android qui est conçue pour communiquer avec le robot envoie un chiffre en fonction de l’action que veut faire l’utilisateur.
-Par exemple, si l’utilisateurs appuie sur la balle pour tirer, le téléphone va communiquer avec le récepteur Bluetooth du robot en lui envoyant le chiffre 6.
-
-\todo[inline]{add image}
-
-Le chiffre envoyé est de type «char».
-Pour simplifier la compréhension du code, nous avons initialisé chacune des constantes et avons attribué une variable représentative.
-La \todo{insert reference (maybe figure)} représente chacune des constantes qui ont été initialisé.
-Ensuite, lors de la configuration de l'Arduino, le Bluetooth est initialisé avec les pins correspondantes.
-De plus, le moteur sans balai que nous avons utilisé est configuré comme un servo moteur, donc nous avons utilisé la classe MegaServo pour initialiser ce moteur.
-Les valeurs à rentrer en paramètre de la fonction ne sont pas des angles puisque c’est un moteur sans balais.
-Selon \cite{arduino_arduino_nodate} le contrôleur du moteur reçoit une impulsion entre 1000~$\mu$s et 2000~$\mu$s, c’est pourquoi nous utilisons ces valeurs.
-Dans ce cas, 1000 représente la valeur minimum c’est-à-dire que le moteur ne tourne pas, alors qu’à 2000, le moteur tourne à sa pleine capacité.
-Le servo moteur a été configurer avec la libraire LibRobus, qui nous a été offerte.
-
-La boucle vérifie à chaque fois si l’application a envoyé un message.
-Lorsqu’un message est reçu, l’Arduino exécute l’action demandé.
-L’action d’avancer et de reculer est très simple, elle consiste uniquement à configurer les 2 moteurs à 0,2~V pour avancer et à -0,2~V pour reculer.
-Nous avons jugé que l’utilisation du PID pour cette fonction n’était pas nécessaire, puisque le robot ne fait que de très petits mouvements.
-Ensuite, lorsque l’utilisateur relâche le bouton, un second message est envoyé au robot pour configurer les 2 moteurs à 0~V (les arrêter).
-
-Les trois prochaines conditions sont reliées au canon du robot.
-Lorsque l’utilisateurs demande un incrément de la vitesse du moteur, la variable forceMoteur est incrémentée de 5.
-Pour la condition où le joueur demande une décrémentation, la vitesse du moteur est décrémentée par 5.
-Pour la distance que nous désirions des verres, après quelques tests, nous avons réalisé que la vitesse optimale était entre 1150 et 1200.
-C’est pourquoi les 10 niveaux de forces du moteur se situent entre 1150 et 1200.
-Ensuite, lorsque le joueur appuie sur tirer, l’Arduino reçoit comme commande de tirer.
-L’angle du servo moteur est donc configurer pour reculer à son minimum, et retourner à son angle initial de 180 degrés.
-Durant cette action, le moteur sans balai part sa puissance à la vitesse demandée par l’utilisateur.
-Donc, lorsque la balle est poussée dans la roue de mousse reliée au moteur sans balai, la balle est propulsée et l’Arduino envoie comme message de fermé le moteur DC.
-Au départ, nous voulions laisser le moteur sans balai rouler en tout temps, cependant par souci d’économie d’énergie et pour que le système soutenant le moteur s’use moins rapidement, nous avons décidé de le partir uniquement lorsque l’Arduino reçoit la commande de tirer.
-
 \subsection{Conception mécanique}
 \todoWho{Will}
 
@@ -176,7 +95,6 @@ Notre Première itération comportait une grande rampe pour assurer que les ball
 Cette idée de rampe a été abandonnée lorsque nous avons réalisé de qu’elle ampleur elle devait être pour répondre à nos besoins (un arc de cercle d’environ 150 mm de rayon, pour assurer un arc de cercle assez graduel.
 Nous avons donc optés pour un lancer direct avec un petit canon pour réduire les imprécisions de la roue.
 
-
 \begin{figure}[h!]
     \centering
 
@@ -255,6 +173,87 @@ Nous nous sommes servis de ces caractéristique pour décortiquer notre lanceur 
 \todo{add a description to the figure}
 
 \todo{ajouter photo monté}
+
+\subsection{Électronique}
+\todoWho{Jordan}
+
+Puisque la méthode de lancer choisi est la roue d’inertie et la méthode de chargement est avec un pignon et une crémaillère, nous devions intégrer au montage un moteur DC et un servomoteur.
+Ainsi le moteur choisi pour faire tourner la roue d’inertie servant à propulser la balle est un moteur DC sans balai.
+Nous avons opté pour ce type de moteur puisque le nombre de rotation par minute devait être suffisamment élevé pour propulser la balle assez loin et le torque devait également être suffisamment important pour éviter une obstruction lors du passage de la balle.
+L’un d’entre nous possédait chez lui un moteur pouvant servir au projet, c’est donc lui qu’on a utilisé.
+Il s’agit du moteur TrackStar 8.5T.
+
+\todo[inline]{add image}
+
+Puisque c’est un moteur sans balai, il ne suffit pas seulement d’appliquer une tension à ses bornes pour qu’il tourne.
+Nous avons donc acheté un contrôleur servant à faire tourner le moteur et à modifier la vitesse grâce à un signal d'entrée.
+Le contrôleur choisi est le ESC 30A.
+Ce contrôleur a comme entrées une alimentation qui doit être d’environ 7,4~V pour que le moteur fonctionne comme il se doit selon la fiche technique du moteur \cite{noauthor_trackstar_nodate} et trois autres fils qui doivent être branché sur l’Arduino.
+Ces trois fils doivent être branché au commun de l’Arduino, au 5~V et à une sortie pouvant produire un PWM soient les pins 2 à 13 de l’Arduino Mega.
+Les trois fils de sorties du contrôleur sont branchés directement sur les trois fils du moteur.
+Pour ce branchement il a été très important de vérifier que le commun de l’alimentation soit connecté au commun de l’Arduino.
+
+\todo[inline]{add image: Circuit d'alimentation et de contrôle du moteur DC sans balai}
+
+Par ailleurs, le moteur doit recevoir une tension d’alimentation de 7,4~V comme indiqué sur la figure\todo{make ref to figure}.
+Cependant, les seules prises d’alimentation sur le robot pouvant fournir un gros courant sont des prises de 5~V et 12~V.
+Ainsi, nous avons acheté un régulateur de tension de type buck pour pouvoir passer de 12~V à 7,4~V.
+Le régulateur de tension acheté est le VMA404 utilisant un LM2596, car c’était un modèle peu dispendieux disponible à la boutique Electro5 à Sherbrooke.
+Comme indiqué dans la prochaine figure\todo{Add ref to figure}, la tension d’entrée est de 12~V et en mesurant la tension de sortie avec un multimètre nous pouvons ajuster le potentiomètre pour avoir 7,4~V en sortie.
+
+\todo[inline]{add image: Régulateur de tension VMA404}
+
+Pour ce qui est du servomoteur, ce dernier est branché directement dans l’un des ports d’entrée sur la carte Robus conçu à cet effet.
+
+Ensuite, pour la communication Bluetooth, nous avons acheté le module HC-05, car c’était celui qui avait était suggéré par le technicien Serge lors du séminaire sur les capteurs.
+Son branchement est effectué comme à la prochaine figure\todo{Add ref to figure}.
+
+\todo[inline]{add image: Circuit de branchement du module Bluetooth HC-05}
+
+On voit donc sur la figure \todo{Add ref to figure} que le module a 4 fils de branchement.
+Il y a deux fils pour l’alimentation, et deux fils pour la réception et la transmission du signal.
+Le module marche à des tensions de 3,3~V c’est pourquoi il y a le diviseur de tension à l’entrée RXD du module suggéré sur le site \cite{noauthor_setting_nodate}.
+L’alimentation est toutefois branchée au 5~V, car il y a un régulateur interne sur le module Bluetooth pour passer de 5~V à 3,3~V.
+
+\subsection{Logiciel}
+\todoWho{Thierry}
+
+\todo[inline]{add pseudocode}
+
+\todo[inline]{add Diagramme d’activité}
+
+La programmation du robot peut sembler compliqué, mais en réalité elle était très simple.
+L’application Android qui est conçue pour communiquer avec le robot envoie un chiffre en fonction de l’action que veut faire l’utilisateur.
+Par exemple, si l’utilisateurs appuie sur la balle pour tirer, le téléphone va communiquer avec le récepteur Bluetooth du robot en lui envoyant le chiffre 6.
+
+\todo[inline]{add image}
+
+Le chiffre envoyé est de type «char».
+Pour simplifier la compréhension du code, nous avons initialisé chacune des constantes et avons attribué une variable représentative.
+La \todo{insert reference (maybe figure)} représente chacune des constantes qui ont été initialisé.
+Ensuite, lors de la configuration de l'Arduino, le Bluetooth est initialisé avec les pins correspondantes.
+De plus, le moteur sans balai que nous avons utilisé est configuré comme un servo moteur, donc nous avons utilisé la classe MegaServo pour initialiser ce moteur.
+Les valeurs à rentrer en paramètre de la fonction ne sont pas des angles puisque c’est un moteur sans balais.
+Selon \cite{arduino_arduino_nodate} le contrôleur du moteur reçoit une impulsion entre 1000~$\mu$s et 2000~$\mu$s, c’est pourquoi nous utilisons ces valeurs.
+Dans ce cas, 1000 représente la valeur minimum c’est-à-dire que le moteur ne tourne pas, alors qu’à 2000, le moteur tourne à sa pleine capacité.
+Le servo moteur a été configurer avec la libraire LibRobus, qui nous a été offerte.
+
+La boucle vérifie à chaque fois si l’application a envoyé un message.
+Lorsqu’un message est reçu, l’Arduino exécute l’action demandé.
+L’action d’avancer et de reculer est très simple, elle consiste uniquement à configurer les 2 moteurs à 0,2~V pour avancer et à -0,2~V pour reculer.
+Nous avons jugé que l’utilisation du PID pour cette fonction n’était pas nécessaire, puisque le robot ne fait que de très petits mouvements.
+Ensuite, lorsque l’utilisateur relâche le bouton, un second message est envoyé au robot pour configurer les 2 moteurs à 0~V (les arrêter).
+
+Les trois prochaines conditions sont reliées au canon du robot.
+Lorsque l’utilisateurs demande un incrément de la vitesse du moteur, la variable forceMoteur est incrémentée de 5.
+Pour la condition où le joueur demande une décrémentation, la vitesse du moteur est décrémentée par 5.
+Pour la distance que nous désirions des verres, après quelques tests, nous avons réalisé que la vitesse optimale était entre 1150 et 1200.
+C’est pourquoi les 10 niveaux de forces du moteur se situent entre 1150 et 1200.
+Ensuite, lorsque le joueur appuie sur tirer, l’Arduino reçoit comme commande de tirer.
+L’angle du servo moteur est donc configurer pour reculer à son minimum, et retourner à son angle initial de 180 degrés.
+Durant cette action, le moteur sans balai part sa puissance à la vitesse demandée par l’utilisateur.
+Donc, lorsque la balle est poussée dans la roue de mousse reliée au moteur sans balai, la balle est propulsée et l’Arduino envoie comme message de fermé le moteur DC.
+Au départ, nous voulions laisser le moteur sans balai rouler en tout temps, cependant par souci d’économie d’énergie et pour que le système soutenant le moteur s’use moins rapidement, nous avons décidé de le partir uniquement lorsque l’Arduino reçoit la commande de tirer.
 
 \section{Conception du système de verres}
 
@@ -355,7 +354,6 @@ Pour que le courant provenant de la photodiode se transforme en signal entré, c
 En réalité, la tension à ses bornes varie entre 0,65~V à 1,2~V selon chaque verre dû à l’enlignement des diodes infrarouges avec les photodiodes.
 De plus, lorsqu’une balle coupe les rayons, la tension s’abaisse à une valeur variante entre 0,2~V à 0,4~V selon chaque verre.
 Dans chacun des cas, les tensions aux bornes des résistances sont cohérentes par rapport à Vref.
-
 
 Dans ce dernier circuit, il était préférable d’utiliser un ampli-op agissant en comparateur au lieu d’un vrai comparateur dû au fait que la sortie de l’ampli-op est tant PNP que NPN tandis que la sortie du comparateur est seulement NPN.
 \todo{add citation}
