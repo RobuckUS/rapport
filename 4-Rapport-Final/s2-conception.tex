@@ -255,6 +255,16 @@ Durant cette action, le moteur sans balai part sa puissance à la vitesse demand
 Donc, lorsque la balle est poussée dans la roue de mousse reliée au moteur sans balai, la balle est propulsée et l’Arduino envoie comme message de fermé le moteur DC.
 Au départ, nous voulions laisser le moteur sans balai rouler en tout temps, cependant par souci d’économie d’énergie et pour que le système soutenant le moteur s’use moins rapidement, nous avons décidé de le partir uniquement lorsque l’Arduino reçoit la commande de tirer.
 
+\subsection{Conception logiciel de l'application}
+\todoWho{Thierry}
+
+C’était la première fois que nous programmions une application Android, c’est pourquoi nous avons choisi d’utiliser Mit App Inventor.
+Cette plateforme est une façon très simple de programmer une application sans pour autant devoir apprendre un nouveau langage de code.
+Une autre des raisons que nous avons choisi d’utiliser cette application est la facilité avec la communication Bluetooth.
+Tout était déjà intégré dans l’application, il manquait uniquement à associer chacun des boutons avec le message que l’on voulait envoyer.
+Comme mentionné dans la section du robot, le message envoyé est de type «char».
+Nous avons choisi d’envoyer cela au lieu d’une chaine de caractère puisqu’il était plus facile de manipuler les caractères.
+
 \section{Conception du système de verres}
 
 Le système de verres est ce qui reçoit les balles lancées par le lanceur de balles.
@@ -398,15 +408,3 @@ Le programme sait lorsqu'un verre est réussi en vérifiant les entrées digital
 Lorsque l'entrée ne détecte plus une tension de 5 V, un message est envoyé pour fermer la DEL correspondante.
 Les DEL ont été organisées pour que chaque sortie corresponde au bon verre.
 Par exemple, la DEL 22 est reliée à l’entrée 1, la DEL 24 est reliée à l’entrée 2 etc.
-
-\section{Conception de l'application}
-
-\subsection{Conception logiciel}
-\todoWho{Thierry}
-
-C’était la première fois que nous programmions une application Android, c’est pourquoi nous avons choisi d’utiliser Mit App Inventor.
-Cette plateforme est une façon très simple de programmer une application sans pour autant devoir apprendre un nouveau langage de code.
-Une autre des raisons que nous avons choisi d’utiliser cette application est la facilité avec la communication Bluetooth.
-Tout était déjà intégré dans l’application, il manquait uniquement à associer chacun des boutons avec le message que l’on voulait envoyer.
-Comme mentionné dans la section du robot, le message envoyé est de type «char».
-Nous avons choisi d’envoyer cela au lieu d’une chaine de caractère puisqu’il était plus facile de manipuler les caractères.
