@@ -5,4 +5,48 @@
 
 \todoGeneric[inline]{Présentation du ou des plans de tests et des résultats.}
 
-\todoPoints{Ajouter les plan de teste}
+\todoDoing{Ajouter les plan de teste}
+
+\subsection{Tests unitaires}
+
+Au cours de ce projet nous avons fait plusieurs tests afin de s’assurer le bon fonctionnement de notre prototype.
+Bien sûr, avant d’avoir un prototype fini, il faut créer plusieurs modules de fonctionnalité séparément, puis tous les intégrer les uns aux autres.
+De ce fait, nous avons alors faits des tests unitaires, c’est-à-dire des tests concernant individuellement chacun des modules de fonctionnalité.
+Le premier module est le lanceur de balle de pingpong.
+Le deuxième est le système de verre intelligent.
+Le suivant est le système Bluetooth reliant le robot à une application et finalement il y a le robot en lui-même.
+Deux moteurs sont installés sur le lanceur et ceux-ci sont tester séparément.
+Un des tests principaux du lanceur était la tension d’alimentation du moteur sans balais.
+Comme démontré dans le tableau ci-dessous, le courant minimum pour faire tourner le monteur est de 1,7~A.
+Quelques autres tests unitaires pour le lanceur ont été effectuer tel que la rotation du servomoteur permettant d’actionner le système de chargement des balles.
+Voici quelques exemples de tests unitaires sur les différents modules de notre prototype.
+
+\todo[inline]{add tableau: Exemple de plan de tests unitaires}
+
+Notre moteur sans balais devait être alimenter a 7,4~V minimum, mais sur le robot les seules sorties de tension sont de 5~V ou 12~V.
+Nous avons alors ajusté notre régulateur de tension en tournant le potentiomètre pour qu’il convertisse la tension de 12~V en tension de 7,4~V.
+Comme il est possible de voir dans le tableau ci-dessus, la plupart des tests étaient concluant puisque notre plan de test unitaires était simple et efficace.
+Les tests effectués étaient précis et faciles à réaliser ce qui nous a permis d’avoir des aussi bons résultats.
+Quelques autres tests unitaires ont été faits par exemple le déplacement du robot.
+Notre robot peut se déplacer de d’avant ou d’arrière, mais il fallait savoir si ce déplacement était plus ou moins droit.
+Lors du test, nous avons remarqué que le poid du lanceur sur la petite roue arrière créais le blocage de celle-ci lorsqu’elle tourne sur elle-même et donc lorsque le robot arrête et repart, cette roue crée un déplacement latéral indésirable qui change la trajectoire du robot.
+Pour remédier à la situation, nous avons installé un support qui empêche la roue de tourner sur elle-même se qui permet au robot de tenir une trajectoire plus droite.
+Puisque le robot et le système de verre sont éloigner d’environ 2,5 mètres un test sur la vitesse du moteur permettant à la balle d’atteindre les verres à été fait.
+Nous savons que le temps minimal de l’impulsion envoyer «ESC» pour que le moteur puisse lancer une balle est de 1100~$\mu$s et qu’à 1150~$\mu$s le robot lance au-dessus de 3 mètre.
+Nous voulions avoir environ 10 vitesses possible pour l’utilisateur, alors nous avons décidé de faire des bonds de 5~$\mu$s entre ces deux valeurs.
+
+\subsection{Tests d'intégration}
+
+Ensuite des tests intégrant tous les modules ensemble ont été effectué afin de s’assurer que tout fonctionne lorsque le prototype est fini.
+Voici quelques exemples de tests effectués
+
+\todo[inline]{add tableau: exemple de plan de test intégrateur}
+
+\subsection{Tests de cas limites}
+
+Les derniers tests effectués sont des tests de cas limite, c’est-à-dire les limites du prototype.
+Nous avons testé le nombre d’impulsions minimales et maximales envoyer au ESC du moteur pour lancer une balle, le nombre de balles pouvant être lancé sans remplir le réservoir, la distance maximale entre l’application et le robot afin que le robot effectue encore les commandes demandées, la tension minimale pour allumer une DEL ainsi que la hauteur maximal et minimal de la roue propulsant la balle.
+
+\todo{Add tableau: plan de test de cas limites}
+
+Quelques autres tests ont été fait, mais ceux-ci sont vraiment les plus pertinents.
