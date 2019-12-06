@@ -204,9 +204,9 @@ Ces trois fils doivent être branché au commun de l’Arduino, au 5~V et à une
 Les trois fils de sorties du contrôleur sont branchés directement sur les trois fils du moteur.
 Pour ce branchement, il a été très important de vérifier que le commun de l’alimentation soit connecté au commun de l’Arduino.
 
-\begin{figure}[h!]
+\begin{figure}[t]
     \centering
-    \includegraphics[width=0.4\linewidth]{img/s2/elec/CircuitMoteurDC}
+    \includegraphics[width=0.8\linewidth]{img/s2/elec/CircuitMoteurDC}
     \caption{Circuit d'alimentation et de contrôle du moteur DC sans balai}
     \label{fig:s2-elec-CircuitMoteurDC}
 \end{figure}
@@ -215,7 +215,7 @@ Par ailleurs, le moteur doit recevoir une tension d’alimentation de 7,4~V comm
 Cependant, les seules prises d’alimentation sur le robot pouvant fournir un gros courant sont des prises de 5~V et 12~V.
 Ainsi, nous avons acheté un régulateur de tension de type buck pour pouvoir passer de 12~V à 7,4~V.
 Le régulateur de tension acheté est le VMA404 utilisant un LM2596, car c’était un modèle peu dispendieux disponible à la boutique Electro5 de Sherbrooke.
-Comme indiqué dans la figure \ref{fig:s2-elec-RegulateurTension}, la tension d’entrée est de 12~V et en mesurant la tension de sortie avec un multimètre nous pouvons ajuster le potentiomètre pour avoir 7,4~V en sortie.
+Comme indiqué dans la figure~\ref{fig:s2-elec-RegulateurTension}, la tension d’entrée est de 12~V et en mesurant la tension de sortie avec un multimètre nous pouvons ajuster le potentiomètre pour avoir 7,4~V en sortie.
 
 \begin{figure}[h!]
     \centering
@@ -227,7 +227,7 @@ Comme indiqué dans la figure \ref{fig:s2-elec-RegulateurTension}, la tension d�
 Pour ce qui est du servomoteur, ce dernier est branché directement dans l’un des ports d’entrée sur la carte Robus conçu à cet effet.
 
 Ensuite, pour la communication Bluetooth, nous avons acheté le module HC-05, car c’était celui qui avait était suggéré par le technicien Serge lors du séminaire sur les capteurs.
-Son branchement est effectué comme indiqué à la figure \ref{fig:s2-elec-CircuitHC-05}.
+Son branchement est effectué comme indiqué à la figure~\ref{fig:s2-elec-CircuitHC-05}.
 
 \begin{figure}[h!]
     \centering
@@ -236,7 +236,7 @@ Son branchement est effectué comme indiqué à la figure \ref{fig:s2-elec-Circu
     \label{fig:s2-elec-CircuitHC-05}
 \end{figure}
 
-On voit donc sur la figure \ref{fig:s2-elec-CircuitHC-05} que le module a 4 fils de branchement.
+On voit donc sur la figure~\ref{fig:s2-elec-CircuitHC-05} que le module a 4 fils de branchement.
 Il y a deux fils pour l’alimentation, et deux fils pour la réception et la transmission du signal.
 Le module marche à des tensions de 3,3~V, c’est pourquoi il y a le diviseur de tension à l’entrée RXD du module comme suggéré sur le site \cite{explore_embedded_setting_nodate}.
 L’alimentation est toutefois branchée au 5~V, car il y a un régulateur interne sur le module Bluetooth pour passer de 5~V à 3,3~V.
@@ -306,14 +306,19 @@ Il y a également six verres fixés sur la base formant un triangle.
 Ensuite, sur trois des quatre bordures il y a des supports où est déposé le toit du plateau.
 Celui-ci est fait en mélamine et il comporte six troues de quatre pouces de diamètre alignés avec les verres \cite{dimensions.guide_beer_2019}.
 Finalement, le boitier électrique est fixé sur l’extérieur de la bordure droite de 3 pouces.
-L’image \todo{add ref to figure} ci-dessous illustre l’allure finale du plateau de verres.
+La figure~\ref{fig:s2-verre-Figure1} illustre l’allure finale du plateau de verres.
 
-\todo[inline]{add image: Plateau de verres}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\linewidth]{img/s2/verre/Figure1}
+    \caption{Plateau de verres}
+    \label{fig:s2-verre-Figure1}
+\end{figure}
 
-Pour être en mesure de bien effectuer sa conception, il a fallu répondre à certaines contraintes.
+Pour être en mesure de bien effectuer la conception du plateau de verres, il a fallu répondre à certaines contraintes.
 Celles-ci sont que le plateau doit avoir une belle esthétique tout en étant assez gros pour contenir six verres et assez petit pour être en mesure de le déplacer et de le ranger facilement.
 Il doit aussi être fait de façon à rendre accessible tout ce qui est d’électronique à l’intérieur.
-De plus, le coût de réalisation ne devait pas être trop élevé vu le statut d’étudiant des membres de l’équipe.
+De plus, le coût de réalisation ne devait pas être trop élevé puisque les membres de l’équipe ont le statut d’étudiant.
 
 La base ainsi que les bordures du plateau auraient pu être imprimées à partir d’une imprimante 3D, mais les dimensions sont très grandes rendant le coût de son impression très élevé dû au prix du plastique ABS.
 Aussi, l’utilisation de ce type d’imprimante n’est pas justifiée dû au fait que le plateau comporte peu de détailles.
@@ -331,18 +336,35 @@ La première est le circuit d’alimentation du système, la deuxième est la co
 \subsubsection{Alimentation}
 
 L’alimentation électrique du système de verres se fait à 9~V, car il s’agit du standard pour ce type de circuit électronique.
-Le circuit d’alimentation est illustré dans les figures ci-dessous\todo{add ref to figure}.
+Le circuit d’alimentation est illustré dans les figures \ref{fig:s2-verre-Figure2} et \ref{fig:s2-verre-Figure3}.
 
-\todo[inline]{add figures:Circuit d’alimentation 9~V et Alimentation Arduino mega2560 R3}
+\begin{figure}[h!]
+    \centering
+
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/s2/verre/Figure2}
+        \caption{Circuit d’alimentation 9~V}
+        \label{fig:s2-verre-Figure2}
+    \end{subfigure}
+    \begin{subfigure}{0.4\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/s2/verre/Figure3}
+        \caption{Alimentation Arduino mega2560}
+        \label{fig:s2-verre-Figure3}
+    \end{subfigure}
+
+    \caption{Circuits d'alimentation}
+    \label{fig:s2-verre-alimentation}
+\end{figure}
 
 L’alimentation 9~V provient de deux piles 9~V alimentant chacune deux parties différentes du système.
-Dans la figure 1\todo{add ref to figure}, elles se nomment 9V-1 et 9V-2.
+Dans la figure~\ref{fig:s2-verre-Figure2}, elles se nomment 9V-1 et 9V-2.
 La première alimentation alimente tous les circuits électriques du plateau de verres et la deuxième alimente l’Arduino.
 De plus, chacune des bornes négatives est connectée ensemble pour que le circuit aille le même commun.
 Les interrupteurs présentent dans le circuit de la figure ont comme fonction de faire commuter la tension des piles vers leurs circuits respectifs.
 Les diodes électroluminescentes vertes (DEL) servent de témoins lumineux indiquant l’état des circuits du plateau ainsi que de l’Arduino.
-Ces DEL sont chacune en série avec une résistance limitant le courant traversant les DEL à 10,3~mA, car la différence de potentiel aux bornes de ce type de DEL varie autour de 2~V normalement.
-\cite{nte_electronics_inc_nte3131_2008}\todo{add citation}
+Ces DEL sont chacune en série avec une résistance limitant le courant traversant les DEL à 10,3~mA, car la différence de potentiel aux bornes de ce type de DEL varie autour de 2~V normalement \cite{nte_electronics_inc_nte3131_2008}.
 Il est préférable d’utiliser deux piles plutôt qu’une pour augmenter la durée de vie des batteries.
 Ce circuit se situe dans le boitier électrique.
 
@@ -350,13 +372,18 @@ Ce circuit se situe dans le boitier électrique.
 
 Les capteurs sont la partie centrale du système de verre.
 Leurs circuits sont alimentés à 9~V et sont composés d’une DEL à rayonnement infrarouge pointée vers une photodiode filtrée pour ne laisser passer que les rayons infrarouges.
-Ce circuit est illustré schématiquement par la figure ci-dessous \todo{add ref to figure} et il est monté sur une plaquette de prototypage située à l’intérieur du plateau de verres.
+Ce circuit est illustré schématiquement par la figure~\ref{fig:s2-verre-Figure4} et il est monté sur une plaquette de prototypage située à l’intérieur du plateau de verres.
 
-\todo[inline]{add figures: Circuit du capteur}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\linewidth]{img/s2/verre/Figure4}
+    \caption{Circuit du capteur}
+    \label{fig:s2-verre-Figure4}
+\end{figure}
 
-Dans le circuit de la figure 2\todo{add ref to figure}, les DEL infrarouges sont représentées par IR\_D et les photodiodes par PD.
+Dans le circuit de la figure~\ref{fig:s2-verre-Figure2}, les DEL infrarouges sont représentées par IR\_D et les photodiodes par PD.
 Ces deux composants sont installés sur chacun des verres un en face de l’autre.
-Pour ce qui est de la DEL infrarouge, vu que la différence de potentiel à ses bornes varie typiquement autour de 1,2~V, une résistance de 430~$\omega$ est nécessaire dans le but de limiter le courant y circulant à 18~mA \cite{everlight_americas_datasheet_2014}.
+Pour ce qui est de la DEL infrarouge, vu que la différence de potentiel à ses bornes varie typiquement autour de 1,2~V, une résistance de 430~$\Omega$ est nécessaire dans le but de limiter le courant y circulant à 18~mA \cite{everlight_americas_datasheet_2014}.
 Pour ce qui est de la photodiode, elle est branchée en sens contraire de sorte que la cathode soit connectée à l’alimentation positive du circuit \cite{sharp_application_1999}.
 L’utilisation d’une DEL infrarouge comme émetteur plutôt que toute autre DEL est due au fait que son rayonnement est invisible à l'oeil nu.
 La photodiode est choisie pour capter les rayons infrarouges, car elle réagit très fortement à une faible variation de rayon la traversant.
@@ -367,19 +394,24 @@ Même si ce n’est pas ce qui est de meilleur pour couper effectivement les ray
 
 Le fonctionnement d’une photodiode se fait en laissant passer un courant maximum en 35~$\mu$A en sens inverse lorsqu’elle est illuminée par la DEL infrarouge \cite{everlight_americas_datasheet_2016}.
 Ce courant se transforme éventuellement en signal d’entrée pour le microcontrôleur.
-Ce circuit est illustré sur la figure ci-dessous \todo{add ref to fig} \cite{sharp_application_1999}.
+Ce circuit est illustré sur la figure~\ref{fig:s2-verre-Figure5} \cite{sharp_application_1999}.
 
-\todo[inline]{add figures: Circuit modulant signal d’entrée}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.8\linewidth]{img/s2/verre/Figure5}
+    \caption{Circuit modulant signal d’entrée}
+    \label{fig:s2-verre-Figure5}
+\end{figure}
 
-Dans la figure 5\todo{add refto figure}, ce qui fait la transformation du signal provenant des capteurs en signal d’entrée digital pour l’Arduino est six amplificateurs opérationnels (ampli-op) MPC602 agissant en comparateur, soit un par verre.
+Dans la figure~\ref{fig:s2-verre-Figure5}, ce qui fait la transformation du signal provenant des capteurs en signal d’entrée digital pour l’Arduino est six amplificateurs opérationnels (ampli-op) MPC602 agissant en comparateur, soit un par verre.
 Ceux-ci laissent soit passer 0~V, lorsqu’il n’y a pas de balle dans un des verres, ou 5~V lorsqu’une balle vient couper les rayons infrarouges \cite{microchip_mcp6021/1r/2/3/4_2001}.
 Pour se faire, le signal provenant du capteur doit se connecter à la borne (-) de l’ampli-op et la tension de référence (Vref) à la borne (+).
 Aussi, pour être compatible avec l’Arduino, l’amplificateur opérationnel doit donner en sortie une tension de 5~V \cite{robotshop_arduino_2010}.
 Les ampli-op doivent donc être alimentés à 5~V.
 Le composant faisant passer la tension d’alimentation 9V-2 à 5~V est un régulateur de tension 5~V LM7805 \cite{fairchild_lm78xx_2006}.
 Vu que la tension à l’entrée (+) de l’ampli-op est presque nulle, la tension de référence Vref posée est de 0,5~V.
-Cette tension est créée par un diviseur de tension alimenté à 5~V comprenant une résistance de 91~k$\omega$ et 10~k$\omega$.
-Pour que le courant provenant de la photodiode se transforme en signal d'entré, celui-ci doit passer à travers une résistance de 150~k$\omega$ pour qu’il y aille une tension de 5~V à ses bornes si le courant la traversant est de 35~$\mu$A lorsque les rayons infrarouges ne sont pas coupés.
+Cette tension est créée par un diviseur de tension alimenté à 5~V comprenant une résistance de 91~k$\Omega$ et 10~k$\Omega$.
+Pour que le courant provenant de la photodiode se transforme en signal d'entré, celui-ci doit passer à travers une résistance de 150~k$\Omega$ pour qu’il y aille une tension de 5~V à ses bornes si le courant la traversant est de 35~$\mu$A lorsque les rayons infrarouges ne sont pas coupés.
 En réalité, la tension à ses bornes varie entre 0,65~V à 1,2~V selon chaque verre dû à l’enlignement des diodes infrarouges avec les photodiodes.
 De plus, lorsqu’une balle coupe les rayons, la tension s’abaisse à une valeur variante entre 0,2~V à 0,4~V selon chaque verre.
 Dans chacun des cas, les tensions aux bornes des résistances sont cohérentes par rapport à Vref.
@@ -387,18 +419,23 @@ Dans chacun des cas, les tensions aux bornes des résistances sont cohérentes p
 Dans ce dernier circuit, il était préférable d’utiliser un ampli-op agissant en comparateur au lieu d’un vrai comparateur dû au fait que la sortie de l’ampli-op est tant en PNP qu'en NPN tandis que la sortie du comparateur est seulement NPN \cite{microchip_mcp6021/1r/2/3/4_2001}.
 En effet, vu que la sortie de l’amplificateur se connecte directement l’Arduino, il est préférable d’utiliser un composant PNP, car celui-ci ne nécessite pas l’ajout d’une résistance en amont de la sortie permettant au courant de circuler.
 Pour ce qui est des régulateurs de tension LM7805, leurs utilisations sont justifiées par le fait que ce type de composant n’est pas affecté par le courant circulant dans les amplificateurs et ils régulent la tension qu’ils reçoivent en entrée, peu importe sa valeur pourvu qu’elle soit supérieure à 7~V, car celui-ci comporte une perte de deux volts \cite{fairchild_lm78xx_2006}.
-Finalement, dans le circuit de la figure 3\todo{add ref to figure}, les condensateurs C1 et C2 sont nécessaires, car ils diminuent le bruit dans le circuit.
+Finalement, dans le circuit de la figure~\ref{fig:s2-verre-Figure5}, les condensateurs C1 et C2 sont nécessaires, car ils diminuent le bruit dans le circuit.
 Ce circuit est monté sur une plaquette de prototypage se situant à l’intérieur du boitier électrique noir.
 
 \subsubsection{Signal de sortie}
 
 La dernière partie de la conception est celle contrôlant le signal du circuit de sortie.
 Ainsi, lorsque l’Arduino ne reçoit plus 5~V en entrée d’un des verres, celui-ci envoie un signal de 5~V dont le but sera d’alimenter une des DEL bleues se trouvant sur le toit du plateau.
-Le circuit de ces DEL est présenté sur la figure 6\todo{add ref to figure}.
+Le circuit de ces DEL est présenté sur la figure~\ref{fig:s2-verre-Figure6}.
 
-\todo[inline]{add figures: Circuit de sortie de l'Arduino}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\linewidth]{img/s2/verre/Figure6}
+    \caption{Circuit de sortie de l'Arduino}
+    \label{fig:s2-verre-Figure6}
+\end{figure}
 
-Sur la figure 4\todo{add ref to figure} ci-dessus, il y a une résistance de 390~$\omega$ en série avec chacune des DEL, car la tension aux bornes de ce type de DEL varie typiquement autour de 3,2~V \cite{noauthor_data_2007}.
+Sur la figure~\ref{fig:s2-verre-Figure6}, il y a une résistance de 390~$\Omega$ en série avec chacune des DEL, car la tension aux bornes de ce type de DEL varie typiquement autour de 3,2~V \cite{noauthor_data_2007}.
 Ainsi, ces résistances limitent le courant circulant dans les DEL à environ 4,6~mA.
 Les DEL de couleurs bleues ont été choisies tout simplement parce qu’elles sont belles et qu’elles brillent bien de façon générale.
 Elles agissent comme témoins lumineux lorsque l’Arduino détecte qu’il y a une balle dans un des verres.
