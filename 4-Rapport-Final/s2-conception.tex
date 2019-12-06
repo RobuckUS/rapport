@@ -1,13 +1,10 @@
-\todoGeneric{10 à 15 pages de conception}
-
 \section{Conception du robot}
 
 \subsection{Conception mécanique}
-\todoWho{Will}
 
 Le lanceur de balles est une partie très importante du projet,
 car il doit être capable de faire ce à quoi il est conçu de façon consistante pour faciliter son utilisation.
-Il se sépare en 3 parties principales: la partie propulsion, la partie recharge ainsi que la partie visé.
+Il se sépare en trois parties principales: la partie propulsion, la partie recharge ainsi que la partie visé.
 
 \subsubsection{Mode de propulsion}
 Pour la propulsion de la balle, trois systèmes ont été étudiés pour assurer une certaine précision tout en gardant le système simple.
@@ -18,10 +15,8 @@ Ce système à vite été écarté puisque nous ne savions pas si les pièces, p
 De plus, il aurait fallu avoir une façon de placer les balles à la bonne distance du ressort et les faire tenir en place avant le contact, ce qui aurait rapidement compliqué les choses.
 Un solénoïde à aussi été envisagé pour frapper la balle, mais nos connaissance en magnétisme n’étaient pas adéquates pour considérer cette option plus sérieusement.
 
-\todo{(Placer photo croquis)}
-
 \paragraph{Option 2.1 (par piston)}
-Un système comparable à ce que l’on retrouve dans les jouets de type “Airsoft” à aussi été étudié.
+Un système comparable à ce que l’on retrouve dans les jouets de type «Airsoft» à aussi été étudié.
 Ce système consiste encore une fois à comprimer un ressort attaché à un piston pour créer une différence de pression entre le devant et le derrière de la balle, la propulsant vers l’avant.
 Ce système comporte les mêmes désavantages que la première option, en plus des problèmes d’étanchéité que peuvent apporter les pièces imprimées.
 Il a donc été écarté.
@@ -30,7 +25,6 @@ Il a donc été écarté.
 Nous avons pensé à remplacer le piston par une pompe à air et un réservoir pressurisé.
 Sachant que l’air comprimé peut être très dangereux si le système échoue, et que nous allions être en présence de famille lors des démonstrations, cette option était donc une mauvaise idée.
 De plus, un système comme celui-ci aurait été beaucoup plus compliqué que le système final choisi.
-\todo{(Placer photo croquis)}
 
 \paragraph{Option finale (roue d’inertie)}
 Nous avons donc opté pour une roue d’inertie pour propulser nos balle.
@@ -39,7 +33,12 @@ Ce système est aussi assez simple, puisqu’il requiert seulement un moteur pou
 Dans les lanceurs «NERF», les roues étaient en plastique dur, puisque que les projectiles étaient en mousse molle et très malléable.
 Dans notre cas, nous ne voulions pas briser la balle, il a donc fallu ajouter un ruban extérieur en mousse servant à isoler les cadres de portes.
 
-\todo{(Placer photo de la roue)}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.4\linewidth]{img/s2/cad/flywheel}
+    \caption{Modèle 3D de la roue d'inertie}
+    \label{fig:s2-cad-flywheel}
+\end{figure}
 
 \subsubsection{Méthode de chargement de la balle}
 Quelques méthodes pour pousser les balles vers la roue d’inertie ont étés envisagées.
@@ -67,7 +66,7 @@ Les roues de 12 et 24 dents ont donc étés choisies, car elles etaient de bonne
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\linewidth]{img/s2/cad/gearbox1}
+    \includegraphics[width=0.4\linewidth]{img/s2/cad/gearbox1}
     \caption{Première itération de la boîte de vitesse}
     \label{fig:s2-cad-gearbox1}
 \end{figure}
@@ -80,7 +79,7 @@ Nous avons donc conçue un support ayant un arc de cercle ce qui nous a permit d
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\linewidth]{img/s2/cad/support}
+    \includegraphics[width=0.4\linewidth]{img/s2/cad/support}
     \caption{Dernière itération du support à lanceur}
     \label{fig:s2-cad-support}
 \end{figure}
@@ -96,22 +95,23 @@ Nous avons donc optés pour un lancer direct avec un petit canon pour réduire l
 \begin{figure}[h!]
     \centering
 
-    \begin{subfigure}{0.3\linewidth}
+    \begin{subfigure}{0.4\linewidth}
         \centering
         \includegraphics[width=\linewidth]{img/s2/cad/rampe}
-        \caption{Modèle 3D de la rampe de lancement}
+        \caption{Modèle 3D de la rampe}
         \label{fig:s2-cad-rampe}
     \end{subfigure}
-    \begin{subfigure}{0.3\linewidth}
+    \begin{subfigure}{0.4\linewidth}
         \centering
         \includegraphics[width=\linewidth]{img/s2/cad/cannon}
         \caption{Modèle 3D du cannon}
         \label{fig:s2-cad-cannon}
     \end{subfigure}
     \caption{Rampe de lancement et cannon}
-    \label{fig:template-example-flottante}
+    \label{fig:s2-cad-rampe-cannon}
 \end{figure}
 
+\newpage
 
 Une autre amélioration de la version finale à été de fixer l’axe de la roue d’inertie des deux côtés et d’ajouter un roulement à bille.
 Les pièces imprimées en 3D sont rarement balancées et la roue ajoutait beaucoup de vibration au système.
@@ -122,12 +122,28 @@ Ce support était aussi imprimé en 2 pièces pour faciliter son implémentation
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\linewidth]{img/s2/cad/motorholer}
+    
+    \begin{subfigure}{0.35\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/s2/cad/motorholer}
+        \caption{Assemblage}
+        \label{fig:s2-cad-motorholer}
+    \end{subfigure}
+    \begin{subfigure}{0.35\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/s2/cad/supportmoteur1}
+        \caption{Pièce 1}
+        \label{fig:s2-cad-supportmoteur1}
+    \end{subfigure}
+    \begin{subfigure}{0.175\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/s2/cad/supportmoteur2}
+        \caption{Pièce 2}
+        \label{fig:s2-cad-supportmoteur2}
+    \end{subfigure}
     \caption{Modèle 3D du support à moteur}
-    \label{fig:s2-cad-motorholer}
+    \label{fig:s2-cad-supportmoteurs}
 \end{figure}
-
-\todo{ajouter photo dans image.zip}
 
 Pour assurer un maillage adéquat entre les roues de la boîte de transmission et la crémaillère, des trous oblongs avaient étés utilisés.
 Cependant, nous nous sommes rendu compte que ces trous ne servaient pas à grand chose et que les engrenages devaient être plus contraintes.
@@ -137,13 +153,11 @@ Cette boite était par la suite fixée au lanceur à l’aide des trous prévus 
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.5\linewidth]{img/s2/cad/gearbox2}
+    \includegraphics[width=0.4\linewidth]{img/s2/cad/gearbox2}
     \caption{Dernière itération de la boîte de vitesse}
     \label{fig:s2-cad-gearbox2}
 \end{figure}
 
-
-\todo{ajouter photo}
 Le PLA est un plastique malléable et facile à percer.
 Nous nous sommes servis de ces caractéristique pour décortiquer notre lanceur en pièces faciles à imprimer et nous avons utilisés des tiges filetées de dimensions 10-32 pour tenir le tout ensemble.
 
@@ -153,25 +167,21 @@ Nous nous sommes servis de ces caractéristique pour décortiquer notre lanceur 
     \begin{subfigure}{0.4\linewidth}
         \centering
         \includegraphics[width=\linewidth]{img/s2/cad/lanceur1}
-        \caption{Vue d'ensemble du premier lanceur}
-        \label{fig:a1-s2-cad-lanceur1}
+        \caption{Assemblage du premier lanceur}
+        \label{fig:s2-cad-lanceur1}
     \end{subfigure}
     \begin{subfigure}{0.4\linewidth}
         \centering
         \includegraphics[width=\linewidth]{img/s2/cad/lanceur2}
-        \caption{Vue d'ensemble du lanceur final}
-        \label{fig:a1-s2-cad-lanceur2}
+        \caption{Assemblage du lanceur final}
+        \label{fig:s2-cad-lanceur2}
     \end{subfigure}
 
-    \caption{Description de l'image.}
-    \label{fig:template-example-flottante}
+    \caption{Assemblage de plusieurs versions des lanceurs}
+    \label{fig:s2-cad-lanceurs}
 \end{figure}
 
-
-\todo{ajouter photo prises par mathieu du lanceur monter}
-
 \subsection{Conception électronique}
-\todoWho{Jordan}
 
 Puisque la méthode de lancer choisi est la roue d’inertie et la méthode de chargement est avec un pignon et une crémaillère, nous devions intégrer au montage un moteur DC et un servomoteur.
 Ainsi le moteur choisi pour faire tourner la roue d’inertie servant à propulser la balle est un moteur DC sans balai.
