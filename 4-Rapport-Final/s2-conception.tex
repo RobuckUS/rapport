@@ -206,7 +206,7 @@ Pour ce branchement, il a été très important de vérifier que le commun de l�
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\linewidth]{img/s2/elec/CircuitMoteurDC}
+    \includegraphics[width=0.7\linewidth]{img/s2/elec/CircuitMoteurDC}
     \caption{Circuit d'alimentation et de contrôle du moteur DC sans balai}
     \label{fig:s2-elec-CircuitMoteurDC}
 \end{figure}
@@ -243,33 +243,24 @@ L’alimentation est toutefois branchée au 5~V, car il y a un régulateur inter
 
 \subsection{Conception logiciel de l'arduino}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.4\linewidth]{img/s2/code/pseudo-robot}
-    \caption{Pseudocode du robot}
-    \label{fig:s2-code-pseudo-robot}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=\linewidth]{img/s2/code/UML-robot}
-    \caption{Diagramme d'activité du robot}
-    \label{fig:s2-code-UML-robot}
-\end{figure}
-
 La programmation du robot peut sembler compliqué, mais en réalité elle était très simple.
 L’application Android, qui est conçue pour communiquer avec le robot, envoie un chiffre en fonction de l’action que veut faire l’utilisateur.
 Par exemple, si l’utilisateurs appuie sur la balle pour tirer, le téléphone va communiquer avec le récepteur Bluetooth du robot en lui envoyant le chiffre 6.
 
-\todo[inline]{add image}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{img/s2/code/application-screen}
+    \caption{Interface de l'application}
+    \label{fig:s2-code-application-screen}
+\end{figure}
 
 Le chiffre envoyé est de type «char».
 Pour simplifier la compréhension du code, nous avons initialisé chacune des constantes et avons attribué une variable représentative.
-La \todo{insert reference (maybe figure)} représente chacune des constantes qui ont été initialisé.
+La figure~\ref{fig:s2-code-application-screen} représente chacune des constantes qui ont été initialisé.
 Ensuite, lors de la configuration de l'Arduino, le Bluetooth est initialisé avec les broches correspondantes.
 De plus, le moteur sans balai que nous avons utilisé est configuré comme un servomoteur, donc nous avons utilisé la classe MegaServo pour initialiser ce moteur.
 Les valeurs à rentrer en paramètre de la fonction ne sont pas des angles puisque c’est un moteur sans balais.
-Selon \cite{arduino_arduino_2019} le contrôleur du moteur reçoit une impulsion entre 1000~$\mu$s et 2000~$\mu$s, c’est pourquoi nous utilisons ces valeurs.
+Selon \cite{arduino_arduino_2019}, le contrôleur du moteur reçoit une impulsion entre 1000~$\mu$s et 2000~$\mu$s, c’est pourquoi nous utilisons ces valeurs.
 Dans ce cas, 1000 représente la valeur minimum c’est-à-dire que le moteur ne tourne pas, alors qu’à 2000, le moteur tourne à sa pleine capacité.
 Le servo moteur a été configurer avec la libraire LibRobus, qui nous a été offerte.
 
@@ -289,6 +280,22 @@ L’angle du servomoteur est donc configurer pour reculer à son minimum, et ret
 Durant cette action, le moteur sans balai part sa puissance à la vitesse demandée par l’utilisateur.
 Donc, lorsque la balle est poussée dans la roue de mousse reliée au moteur sans balai, la balle est propulsée et l’Arduino envoie comme message de fermé le moteur DC.
 Au départ, nous voulions laisser le moteur sans balai rouler en tout temps, cependant par souci d’économie d’énergie et pour que le système soutenant le moteur s’use moins rapidement, nous avons décidé de le partir uniquement lorsque l’Arduino reçoit la commande de tirer.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{img/s2/code/pseudo-robot}
+    \caption{Pseudocode du robot}
+    \label{fig:s2-code-pseudo-robot}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{img/s2/code/UML-robot}
+    \caption{Diagramme d'activité du robot}
+    \label{fig:s2-code-UML-robot}
+\end{figure}
 
 \subsection{Conception logiciel de l'application}
 
@@ -452,20 +459,6 @@ Ce circuit est également monté sur la plaquette de prototypage du boitier éle
 
 \subsection{Conception logiciel}
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.4\linewidth]{img/s2/code/pseudo-verres}
-    \caption{Pseudocode des verres}
-    \label{fig:s2-code-pseudo-verres}
-\end{figure}
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=\linewidth]{img/s2/code/UML-VERRES}
-    \caption{Diagramme d'activité des verres}
-    \label{fig:s2-code-UML-VERRES}
-\end{figure}
-
 Pour les verres, il fallait programmer l'Arduino Mega 2560 qui a été utilisé.
 Cette programmation était relativement simple.
 Six des entrées digitales (configurées en entrées) de l'Arduino étaient connectées aux verres, ces entrées sont les broches 22 à 32.
@@ -478,3 +471,17 @@ Le programme sait lorsqu'un verre est réussi en vérifiant les entrées digital
 Lorsque l'entrée ne détecte plus une tension de 5~V, un message est envoyé pour fermer la DEL correspondante.
 Les DEL ont été organisées pour que chaque sortie corresponde au bon verre.
 Par exemple, la DEL 22 est reliée à l’entrée 1, la DEL 24 est reliée à l’entrée 2 etc.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{img/s2/code/pseudo-verres}
+    \caption{Pseudocode des verres}
+    \label{fig:s2-code-pseudo-verres}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{img/s2/code/UML-VERRES}
+    \caption{Diagramme d'activité des verres}
+    \label{fig:s2-code-UML-VERRES}
+\end{figure}
