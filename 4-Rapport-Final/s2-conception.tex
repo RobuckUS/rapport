@@ -37,7 +37,7 @@ Nous avons donc opté pour une roue d’inertie pour propulser nos balle.
 L’idée est venue des jouets de la marque «NERF», qui utilisent 2 roues tournant en sens inverse pour propulser des fléchettes de mousse sur une distance acceptable.
 Ce système est aussi assez simple, puisqu’il requiert seulement un moteur pouvant tourner à une vitesse contrôlable et d’une roue d’inertie.
 Dans les lanceurs «NERF», les roues étaient en plastique dur, puisque que les projectiles étaient en mousse molle et très malléable.
-Dans notre cas, nous ne voulions pas briser la balle, il a donc fallu rajouter une ruban extérieur en mousse servant à isoler les cadres de portes.
+Dans notre cas, nous ne voulions pas briser la balle, il a donc fallu ajouter un ruban extérieur en mousse servant à isoler les cadres de portes.
 
 \todo{(Placer photo de la roue)}
 
@@ -53,8 +53,8 @@ La gravité n’avait donc pas la force nécessaire pour enfoncer la balle sous 
 
 \paragraph{Option 2 (avec came et tige-poussoir)}
 Nous voulions nous servir d’un servomoteur pour gérer le chargement, car ils sont simples à utiliser et assez précis pour nos besoins.
-Le débattement nécessaire pour amener les balles de la position ou les balles sont placées jusqu’en dessous de la roue est d’environ 75 mm (les balles faisant 40mm de diamètre et en ajoutant quelques millimètres pour assurer la solidité du lanceur).
-Les servos allant seulement de 0 à 180 degrés, il aurait fallu une camme d’au moins 75 mm de diamètre pour accommoder ce débattement, ce qui aurait été beaucoup trop gros en comparaison au lanceur.
+Le débattement nécessaire pour amener les balles de la position ou les balles sont placées jusqu’en dessous de la roue est d’environ 75~mm (les balles faisant 40~mm de diamètre et en ajoutant quelques millimètres pour assurer la solidité du lanceur).
+Les servos allant seulement de 0 à 180 degrés, il aurait fallu une camme d’au moins 75~mm de diamètre pour accommoder ce débattement, ce qui aurait été beaucoup trop gros en comparaison au lanceur.
 
 \paragraph{Option 3 (avec pignon et crémaillère)}
 Cet option est parfaite, puisqu’elle règle le seul problème que la came avait: la dimension des roues.
@@ -90,7 +90,7 @@ La distance des lancers allait donc être déterminée par la vitesse à laquell
 \subsubsection{Version finale du protype}
 La version finale allait donc être un lanceur fixe rechargé par une crémaillère, qui propulse les balles à l’aide d’une roue d’inertie.
 Notre première itération comportait une grande rampe pour assurer que les balles aient un maximum de temps en contact avec le lanceur pour augmenter la précision.
-Cette idée de rampe a été abandonnée lorsque nous avons réalisé de quelle dimension elle devait être pour répondre à nos besoins (un arc de cercle d’environ 150 mm de rayon, pour assurer un arc de cercle assez graduel).
+Cette idée de rampe a été abandonnée lorsque nous avons réalisé de quelle dimension elle devait être pour répondre à nos besoins (un arc de cercle d’environ 150~mm de rayon, pour assurer un arc de cercle assez graduel).
 Nous avons donc optés pour un lancer direct avec un petit canon pour réduire les imprécisions des tirs.
 
 \begin{figure}[h!]
@@ -376,7 +376,7 @@ La dernière partie de la conception est celle contrôlant le signal du circuit 
 Ainsi, lorsque l’Arduino ne reçoit plus 5~V en entrée d’un des verres, celui-ci envoie un signal de 5~V dont le but sera d’alimenter une des DEL bleues se trouvant sur le toit du plateau.
 Le circuit de ces DEL est présenté sur la figure 6\todo{add ref to figure}.
 
-\todo[inline]{add figures: Circuit de sortie du Arduino}
+\todo[inline]{add figures: Circuit de sortie de l'Arduino}
 
 Sur la figure 4\todo{add ref to figure} ci-dessus, il y a une résistance de 390~$\omega$ en série avec chacune des DEL, car la tension aux bornes de ce type de DEL varie typiquement autour de 3,2~V.
 \todo{ass citation}
@@ -401,6 +401,6 @@ Lors de la configuration de l'Arduino (init), une tension de cinq volts par sort
 Ensuite, le programme passe à la boucle.
 La boucle (loop) vérifie si une balles est entrée dans les verres.
 Le programme sait lorsqu'un verre est réussi en vérifiant les entrées digitales 22 à 32.
-Lorsque l'entrée ne détecte plus une tension de 5 V, un message est envoyé pour fermer la DEL correspondante.
+Lorsque l'entrée ne détecte plus une tension de 5~V, un message est envoyé pour fermer la DEL correspondante.
 Les DEL ont été organisées pour que chaque sortie corresponde au bon verre.
 Par exemple, la DEL 22 est reliée à l’entrée 1, la DEL 24 est reliée à l’entrée 2 etc.
