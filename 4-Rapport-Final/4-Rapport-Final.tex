@@ -32,7 +32,9 @@
 
 \usepackage[font=bf]{caption}
 
-\usepackage[section]{placeins}
+\usepackage{placeins}
+
+\usepackage{pdflscape}
 
 \usepackage[colorinlistoftodos]{todonotes}
 \newcommand{\todoPoints}[2][]{\todo[color=red!50, inline, #1]{#2}}
@@ -45,10 +47,6 @@
 
 \renewcommand{\tablename}{Tableau}
 \renewcommand{\listfigurename}{Liste des figures}
-
-\begin{spacing}{1}
-    \listoftodos
-\end{spacing}
 
 \input{titlepage.tex}
 
@@ -75,8 +73,11 @@
 \pagenumbering{arabic}
 
 \input{s1-planification}
+\null\newpage
 \input{s2-conception}
+\newpage
 \input{s3-tests}
+\newpage
 \input{s4-bilan}
 
 \newpage
