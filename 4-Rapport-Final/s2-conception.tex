@@ -4,16 +4,16 @@
 
 Le lanceur de balles est une partie très importante du projet,
 car il doit être capable de faire ce à quoi il est conçu de façon consistante pour faciliter son utilisation.
-Il se sépare en trois parties principales: la partie propulsion, la partie recharge ainsi que la partie visé.
+Il se sépare en trois parties principales: la partie propulsion, la partie recharge ainsi que la partie visée.
 
 \subsubsection{Mode de propulsion}
 Pour la propulsion de la balle, trois systèmes ont été étudiés pour assurer une certaine précision tout en gardant le système simple.
 
 \paragraph{Option 1 (par contact)}
 Nous avons pensé à un système comprimant un ressort à l’aide d’une boîte de vitesse et d’une crémaillère.
-Ce système à vite été écarté puisque nous ne savions pas si les pièces, principalement imprimées en PLA, allaient être capable de supporter l'énergie emmagasinée dans le ressort.
+Ce système à rapidement été écarté puisque nous ne savions pas si les pièces, principalement imprimées en \emph{PLA}, allaient être capable de supporter l'énergie emmagasinée dans le ressort.
 De plus, il aurait fallu avoir une façon de placer les balles à la bonne distance du ressort et les faire tenir en place avant le contact, ce qui aurait rapidement compliqué les choses.
-Un solénoïde à aussi été envisagé pour frapper la balle, mais nos connaissance en magnétisme n’étaient pas adéquates pour considérer cette option plus sérieusement.
+Un solénoïde a aussi été envisagé pour frapper la balle, mais nos connaissances en magnétisme n’étaient pas adéquates pour considérer cette option plus sérieusement.
 
 \paragraph{Option 2.1 (par piston)}
 Un système comparable à ce que l’on retrouve dans les jouets de type «Airsoft» à aussi été étudié.
@@ -53,14 +53,14 @@ La gravité n’avait donc pas la force nécessaire pour enfoncer la balle sous 
 \paragraph{Option 2 (avec came et tige-poussoir)}
 Nous voulions nous servir d’un servomoteur pour gérer le chargement, car ils sont simples à utiliser et assez précis pour nos besoins.
 Le débattement nécessaire pour amener les balles de la position ou les balles sont placées jusqu’en dessous de la roue est d’environ 75~mm (les balles faisant 40~mm de diamètre et en ajoutant quelques millimètres pour assurer la solidité du lanceur).
-Les servos allant seulement de 0 à 180 degrés, il aurait fallu une camme d’au moins 75~mm de diamètre pour accommoder ce débattement, ce qui aurait été beaucoup trop gros en comparaison au lanceur.
+Les servomoteur allant seulement de 0 à 180 degrés, il aurait fallu une camme d’au moins 75~mm de diamètre pour accommoder ce débattement, ce qui aurait été beaucoup trop gros en comparaison au lanceur.
 
 \paragraph{Option 3 (avec pignon et crémaillère)}
 Cet option est parfaite, puisqu’elle règle le seul problème que la came avait: la dimension des roues.
 En se servant des CADs fournies par McMaster.com, il a été facile de trouver des pièces de dimensions adéquates pour notre système.
 Un pignon ayant un diamètre primitif de 1 pouce ayant 20 dents et sa crémaillère répondaient parfaitement à nos critères de dimensions.
 Il nous faudrait donc faire tourner le pignon une fois(2*pi*0,5 po) pour atteindre le débattement voulu (3po).
-Il fallait donc changer 180 degrés du servo en 360 degré.
+Il fallait donc changer 180 degrés du servomoteur en 360 degré.
 Nous avons donc utilisé deux roues ayant le même diamètre primitif que la première, dont une qui avait 2 fois plus de dents pour assurer un tour complet.
 Les roues de 12 et 24 dents ont donc étés choisies, car elles etaient de bonnes dimensions.
 
@@ -113,12 +113,12 @@ Nous avons donc optés pour un lancer direct avec un petit canon pour réduire l
 
 \newpage
 
-Une autre amélioration de la version finale à été de fixer l’axe de la roue d’inertie des deux côtés et d’ajouter un roulement à bille.
+Une autre amélioration de la version finale a été d'attacher l’axe de la roue d’inertie des deux côtés et d’ajouter un roulement à bille.
 Les pièces imprimées en 3D sont rarement balancées et la roue ajoutait beaucoup de vibration au système.
 Le roulement à bille réduisait aussi la friction entre l’arbre de la roue et le support en plastique, qui avait tendance à fondre durant l’utilisation.
 De plus, ce support facilitait aussi l’ajustement de la position de la roue d’inertie.
-Un écrou sous le support était facilement accessible et nous n’avions plus besoins de défaire le montage au complet pour dévisser le moteur et changer sa hauteur.
-Ce support était aussi imprimé en 2 pièces pour faciliter son implémentation au système.
+Un écrou sous le support était facilement accessible et nous n’avions plus besoin de défaire le montage au complet pour dévisser le moteur et changer sa hauteur.
+Ce support était aussi imprimé en deux pièces pour faciliter son implémentation au système.
 
 \begin{figure}[h!]
     \centering
@@ -145,11 +145,11 @@ Ce support était aussi imprimé en 2 pièces pour faciliter son implémentation
     \label{fig:s2-cad-supportmoteurs}
 \end{figure}
 
-Pour assurer un maillage adéquat entre les roues de la boîte de transmission et la crémaillère, des trous oblongs avaient étés utilisés.
-Cependant, nous nous sommes rendu compte que ces trous ne servaient pas à grand chose et que les engrenages devaient être plus contraintes.
+Pour assurer un maillage adéquat entre les roues de la boîte de transmission et la crémaillère, des trous oblongs avaient été utilisés.
+Cependant, nous nous sommes rendu compte que ces trous n'étaient pas utiles et que les engrenages devaient être plus contraintes.
 La position du servomoteur a aussi été modifiée puisqu’il interférait avec les tiges filetées servant à fixer le système.
 Nous avons donc conçue une boîte de transmission complètement indépendante du lanceur qui gardait toujours la bonne distance entre les engrenages.
-Cette boite était par la suite fixée au lanceur à l’aide des trous prévus à cette effet.
+Cette boite était par la suite fixée au lanceur à l’aide des trous prévus à cet effet.
 
 \begin{figure}[h!]
     \centering
@@ -159,7 +159,7 @@ Cette boite était par la suite fixée au lanceur à l’aide des trous prévus 
 \end{figure}
 
 Le PLA est un plastique malléable et facile à percer.
-Nous nous sommes servis de ces caractéristique pour décortiquer notre lanceur en pièces faciles à imprimer et nous avons utilisés des tiges filetées de dimensions 10-32 pour tenir le tout ensemble.
+Nous nous sommes servis de ces caractéristiques pour décortiquer notre lanceur en pièces faciles à imprimer et nous avons utilisé des tiges filetées de dimensions 10-32 pour tenir le tout ensemble.
 
 \begin{figure}[h!]
     \centering
@@ -198,9 +198,9 @@ Il s’agit du moteur TrackStar 8.5T.
 
 Puisque c’est un moteur sans balai, il ne suffit pas seulement d’appliquer une tension à ses bornes pour qu’il tourne.
 Nous avons donc acheté un contrôleur servant à faire tourner le moteur et à modifier la vitesse grâce à un signal d'entrée.
-Le contrôleur choisi est le ESC 30A.
-Ce contrôleur a comme entrées une alimentation qui doit être d’environ 7,4~V pour que le moteur fonctionne comme il se doit selon la fiche technique du moteur \cite{noauthor_trackstar_nodate} et trois autres fils qui doivent être branché sur l’Arduino.
-Ces trois fils doivent être branché au commun de l’Arduino, au 5~V et à une sortie pouvant produire un PWM soient les broches 2 à 13 de l’Arduino Mega.
+Le contrôleur choisi est l'\emph{ESC 30A}.
+Ce contrôleur a comme entrées une alimentation qui doit être d’environ 7,4~V pour que le moteur fonctionne selon sa fiche technique \cite{noauthor_trackstar_nodate} et trois autres fils qui doivent être branchés sur l’Arduino.
+Ces trois fils doivent être branchés au commun de l’Arduino, au 5~V et à une sortie pouvant produire un PWM soient les broches 2 à 13 de l’Arduino Mega.
 Les trois fils de sorties du contrôleur sont branchés directement sur les trois fils du moteur.
 Pour ce branchement, il a été très important de vérifier que le commun de l’alimentation soit connecté au commun de l’Arduino.
 
@@ -211,11 +211,11 @@ Pour ce branchement, il a été très important de vérifier que le commun de l�
     \label{fig:s2-elec-CircuitMoteurDC}
 \end{figure}
 
-Par ailleurs, le moteur doit recevoir une tension d’alimentation de 7,4~V comme indiqué sur la figure~\ref{fig:s2-elec-RegulateurTension}.
+Par ailleurs, le moteur doit recevoir une tension d’alimentation de 7,4~V, tel qu'indiqué sur la figure~\ref{fig:s2-elec-RegulateurTension}.
 Cependant, les seules prises d’alimentation sur le robot pouvant fournir un gros courant sont des prises de 5~V et 12~V.
-Ainsi, nous avons acheté un régulateur de tension de type buck pour pouvoir passer de 12~V à 7,4~V.
+Ainsi, nous avons acheté un régulateur de tension de type \emph{buck} pour pouvoir passer de 12~V à 7,4~V.
 Le régulateur de tension acheté est le VMA404 utilisant un LM2596, car c’était un modèle peu dispendieux disponible à la boutique Electro5 de Sherbrooke.
-Comme indiqué dans la figure~\ref{fig:s2-elec-RegulateurTension}, la tension d’entrée est de 12~V et en mesurant la tension de sortie avec un multimètre nous pouvons ajuster le potentiomètre pour avoir 7,4~V en sortie.
+Tel qu'indiqué dans la figure~\ref{fig:s2-elec-RegulateurTension}, la tension d’entrée est de 12~V et en mesurant la tension de sortie avec un multimètre nous pouvons ajuster le potentiomètre pour avoir 7,4~V en sortie.
 
 \begin{figure}[h!]
     \centering
@@ -224,10 +224,10 @@ Comme indiqué dans la figure~\ref{fig:s2-elec-RegulateurTension}, la tension d�
     \label{fig:s2-elec-RegulateurTension}
 \end{figure}
 
-Pour ce qui est du servomoteur, ce dernier est branché directement dans l’un des ports d’entrée sur la carte Robus conçu à cet effet.
+Pour ce qui est du servomoteur, ce dernier est branché directement dans l’un des ports d’entrée sur la carte Robus conçue à cet effet.
 
-Ensuite, pour la communication Bluetooth, nous avons acheté le module HC-05, car c’était celui qui avait était suggéré par le technicien Serge lors du séminaire sur les capteurs.
-Son branchement est effectué comme indiqué à la figure~\ref{fig:s2-elec-CircuitHC-05}.
+Ensuite, pour la communication Bluetooth, nous avons acheté le module HC-05, car c’est celui qui est suggéré par le technicien Serge lors du séminaire sur les capteurs.
+Son branchement est effectué tel qu'indiqué à la figure~\ref{fig:s2-elec-CircuitHC-05}.
 
 \begin{figure}[h!]
     \centering
@@ -236,14 +236,14 @@ Son branchement est effectué comme indiqué à la figure~\ref{fig:s2-elec-Circu
     \label{fig:s2-elec-CircuitHC-05}
 \end{figure}
 
-On voit donc sur la figure~\ref{fig:s2-elec-CircuitHC-05} que le module a 4 fils de branchement.
-Il y a deux fils pour l’alimentation, et deux fils pour la réception et la transmission du signal.
-Le module marche à des tensions de 3,3~V, c’est pourquoi il y a le diviseur de tension à l’entrée RXD du module comme suggéré sur le site \cite{explore_embedded_setting_nodate}.
+On voit donc sur la figure~\ref{fig:s2-elec-CircuitHC-05} que le module a quatre fils de branchement.
+Il y a deux fils pour l’alimentation et deux fils pour la réception et la transmission du signal.
+Le module marche à des tensions de 3,3~V, c’est pourquoi il y a le diviseur de tension à l’entrée RXD du module tel que suggéré sur le site \cite{explore_embedded_setting_nodate}.
 L’alimentation est toutefois branchée au 5~V, car il y a un régulateur interne sur le module Bluetooth pour passer de 5~V à 3,3~V.
 
 \subsection{Conception logiciel de l'arduino}
 
-La programmation du robot peut sembler compliqué, mais en réalité elle était très simple.
+La programmation du robot peut sembler compliqué, mais en réalité elle est très simple.
 L’application Android, qui est conçue pour communiquer avec le robot, envoie un chiffre en fonction de l’action que veut faire l’utilisateur.
 Par exemple, si l’utilisateurs appuie sur la balle pour tirer, le téléphone va communiquer avec le récepteur Bluetooth du robot en lui envoyant le chiffre 6.
 
@@ -256,29 +256,29 @@ Par exemple, si l’utilisateurs appuie sur la balle pour tirer, le téléphone 
 
 Le chiffre envoyé est de type «char».
 Pour simplifier la compréhension du code, nous avons initialisé chacune des constantes et avons attribué une variable représentative.
-La figure~\ref{fig:s2-code-application-screen} représente chacune des constantes qui ont été initialisé.
+La figure~\ref{fig:s2-code-application-screen} représente chacune des constantes qui ont été initialisés.
 Ensuite, lors de la configuration de l'Arduino, le Bluetooth est initialisé avec les broches correspondantes.
 De plus, le moteur sans balai que nous avons utilisé est configuré comme un servomoteur, donc nous avons utilisé la classe MegaServo pour initialiser ce moteur.
 Les valeurs à rentrer en paramètre de la fonction ne sont pas des angles puisque c’est un moteur sans balais.
 Selon \cite{arduino_arduino_2019}, le contrôleur du moteur reçoit une impulsion entre 1000~$\mu$s et 2000~$\mu$s, c’est pourquoi nous utilisons ces valeurs.
 Dans ce cas, 1000 représente la valeur minimum c’est-à-dire que le moteur ne tourne pas, alors qu’à 2000, le moteur tourne à sa pleine capacité.
-Le servo moteur a été configurer avec la libraire LibRobus, qui nous a été offerte.
+Le servomoteur a été configuré avec la libraire LibRobus.
 
 La boucle vérifie à chaque fois si l’application a envoyé un message.
-Lorsqu’un message est reçu, l’Arduino exécute l’action demandé.
-L’action d’avancer et de reculer est très simple, elle consiste uniquement à configurer les 2 moteurs à 0,2~V pour avancer et à -0,2~V pour reculer.
+Lorsqu’un message est reçu, l’Arduino exécute l’action demandée.
+L’action d’avancer et de reculer est très simple, elle consiste uniquement à configurer les deux moteurs à 0,2~V pour avancer et à -0,2~V pour reculer.
 Nous avons jugé que l’utilisation du PID pour cette fonction n’était pas nécessaire, puisque le robot ne fait que de très petits mouvements.
-Ensuite, lorsque l’utilisateur relâche le bouton, un second message est envoyé au robot pour configurer les 2 moteurs à 0~V (les arrêter).
+Ensuite, lorsque l’utilisateur relâche le bouton, un second message est envoyé au robot pour configurer les deux moteurs à 0~V (les arrêter).
 
 Les trois prochaines conditions sont reliées au canon du robot.
-Lorsque l’utilisateurs demande un incrément de la vitesse du moteur, la variable forceMoteur est incrémentée de 5.
+Lorsque l’utilisateurs demande un incrément de la vitesse du moteur, la variable \texttt{forceMoteur} est incrémentée de 5.
 Pour la condition où le joueur demande une décrémentation, la vitesse du moteur est décrémentée par 5.
-Pour la distance que nous désirions des verres, après quelques tests, nous avons réalisé que la vitesse optimale était entre 1150 et 1200.
+Pour la distance que nous désirions des verres, après quelques tests, nous nous sommes rendu compte que la vitesse optimale était entre 1150 et 1200.
 C’est pourquoi les 10 niveaux de forces du moteur se situent entre 1150 et 1200.
-Ensuite, lorsque le joueur appuie sur «tirer», l’Arduino reçoit comme commande de tirer.
-L’angle du servomoteur est donc configurer pour reculer à son minimum, et retourner à son angle initial de 180 degrés.
-Durant cette action, le moteur sans balai part sa puissance à la vitesse demandée par l’utilisateur.
-Donc, lorsque la balle est poussée dans la roue de mousse reliée au moteur sans balai, la balle est propulsée et l’Arduino envoie comme message de fermé le moteur DC.
+Ensuite, lorsque le joueur appui sur «tirer», l’Arduino reçoit la commande de tirer.
+L’angle du servomoteur est donc configuré pour reculer à son minimum et retourner à son angle initial de 180 degrés.
+Durant cette action, le moteur sans balai part à sa puissance à la vitesse demandée par l’utilisateur.
+Donc, lorsque la balle est poussée dans la roue de mousse reliée au moteur sans balai, la balle est propulsée et l’Arduino envoie comme message de fermer le moteur DC.
 Au départ, nous voulions laisser le moteur sans balai rouler en tout temps, cependant par souci d’économie d’énergie et pour que le système soutenant le moteur s’use moins rapidement, nous avons décidé de le partir uniquement lorsque l’Arduino reçoit la commande de tirer.
 
 \begin{figure}[h!]
@@ -336,7 +336,7 @@ Celles-ci sont que le plateau doit avoir une belle esthétique tout en étant as
 Il doit aussi être fait de façon à rendre accessible tout ce qui est d’électronique à l’intérieur.
 De plus, le coût de réalisation ne devait pas être trop élevé puisque les membres de l’équipe ont le statut d’étudiant.
 
-La base ainsi que les bordures du plateau auraient pu être imprimées à partir d’une imprimante 3D, mais les dimensions sont très grandes rendant le coût de son impression très élevé dû au prix du plastique ABS.
+La base ainsi que les bordures du plateau auraient pu être imprimées à partir d’une imprimante 3D, mais les dimensions sont très grandes rendant le coût de son impression très élevé dû au prix du plastique \emph{ABS}.
 Aussi, l’utilisation de ce type d’imprimante n’est pas justifiée dû au fait que le plateau comporte peu de détailles.
 Ensuite, parce que son coût est très faible, le bois a été choisi pour le matériau du plateau.
 Les bordures ainsi que la base sont fixées ensemble par de la colle à bois en plus de clous de finissions.
