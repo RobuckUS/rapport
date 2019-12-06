@@ -220,14 +220,14 @@ Comme indiqué dans la figure \ref{fig:s2-elec-RegulateurTension}, la tension d�
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.4\linewidth]{img/s2/elec/RegulateurTension}
-    \caption{CRégulateur de tension VMA404}
+    \caption{Régulateur de tension VMA404}
     \label{fig:s2-elec-RegulateurTension}
 \end{figure}
 
 Pour ce qui est du servomoteur, ce dernier est branché directement dans l’un des ports d’entrée sur la carte Robus conçu à cet effet.
 
 Ensuite, pour la communication Bluetooth, nous avons acheté le module HC-05, car c’était celui qui avait était suggéré par le technicien Serge lors du séminaire sur les capteurs.
-Son branchement est effectué comme à la prochaine figure\todo{Add ref to figure}.
+Son branchement est effectué comme indiqué à la figure \ref{fig:s2-elec-CircuitHC-05}.
 
 \begin{figure}[h!]
     \centering
@@ -236,7 +236,7 @@ Son branchement est effectué comme à la prochaine figure\todo{Add ref to figur
     \label{fig:s2-elec-CircuitHC-05}
 \end{figure}
 
-On voit donc sur la figure \todo{Add ref to figure} que le module a 4 fils de branchement.
+On voit donc sur la figure \ref{fig:s2-elec-CircuitHC-05} que le module a 4 fils de branchement.
 Il y a deux fils pour l’alimentation, et deux fils pour la réception et la transmission du signal.
 Le module marche à des tensions de 3,3~V, c’est pourquoi il y a le diviseur de tension à l’entrée RXD du module comme suggéré sur le site \cite{noauthor_setting_nodate}.
 L’alimentation est toutefois branchée au 5~V, car il y a un régulateur interne sur le module Bluetooth pour passer de 5~V à 3,3~V.
