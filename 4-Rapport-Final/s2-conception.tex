@@ -211,7 +211,7 @@ Pour ce branchement, il a été très important de vérifier que le commun de l�
     \label{fig:s2-elec-CircuitMoteurDC}
 \end{figure}
 
-Par ailleurs, le moteur doit recevoir une tension d’alimentation de 7,4~V comme indiqué sur la figure\todo{make ref to figure}.
+Par ailleurs, le moteur doit recevoir une tension d’alimentation de 7,4~V comme indiqué sur la figure~\ref{fig:s2-elec-RegulateurTension}.
 Cependant, les seules prises d’alimentation sur le robot pouvant fournir un gros courant sont des prises de 5~V et 12~V.
 Ainsi, nous avons acheté un régulateur de tension de type buck pour pouvoir passer de 12~V à 7,4~V.
 Le régulateur de tension acheté est le VMA404 utilisant un LM2596, car c’était un modèle peu dispendieux disponible à la boutique Electro5 de Sherbrooke.
@@ -242,11 +242,15 @@ Le module marche à des tensions de 3,3~V, c’est pourquoi il y a le diviseur d
 L’alimentation est toutefois branchée au 5~V, car il y a un régulateur interne sur le module Bluetooth pour passer de 5~V à 3,3~V.
 
 \subsection{Conception logiciel de l'arduino}
-\todoWho{Thierry}
 
 \todo[inline]{add pseudocode}
 
-\todo[inline]{add Diagramme d’activité}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{img/s2/code/UML-robot}
+    \caption{Diagramme d'activité du robot}
+    \label{fig:s2-code-UML-robot}
+\end{figure}
 
 La programmation du robot peut sembler compliqué, mais en réalité elle était très simple.
 L’application Android, qui est conçue pour communiquer avec le robot, envoie un chiffre en fonction de l’action que veut faire l’utilisateur.
@@ -446,7 +450,12 @@ Ce circuit est également monté sur la plaquette de prototypage du boitier éle
 
 \todo[inline]{add pseudocode}
 
-\todo[inline]{add Diagramme d’activité}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=\linewidth]{img/s2/code/UML-VERRES}
+    \caption{Diagramme d'activité des verres}
+    \label{fig:s2-code-UML-VERRES}
+\end{figure}
 
 Pour les verres, il fallait programmer l'Arduino Mega 2560 qui a été utilisé.
 Cette programmation était relativement simple.
