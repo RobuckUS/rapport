@@ -1,27 +1,9 @@
 \section{Diagrammes UML de Connect Four}
 
+
 \begin{figure}[H]
     \centering
-    \begin{tikzpicture}
-        \begin{umlsystem}{Connect Four}
-            \umlusecase[x=-2,y=5]{TODO add action}
-            \umlusecase[x=-2,y=3]{TODO add action}
-            \umlusecase[y=1]{TODO add action}
-            \umlusecase[y=-1]{TODO add action}
-            \umlusecase[x=4,y=4]{TODO add action}
-        \end{umlsystem}
-
-        \umlactor[y=2,x=-6]{Actor}
-
-        \umlassoc{Actor}{usecase-1}
-        \umlassoc{Actor}{usecase-3}
-        \umlassoc{Actor}{usecase-2}
-        \umlassoc{Actor}{usecase-4}
-
-        \umlinclude{usecase-1}{usecase-5}
-        \umlinclude{usecase-2}{usecase-5}
-        \umlextend{usecase-3}{usecase-4}
-    \end{tikzpicture}
+    \includegraphics[width=6in]{img/cas}
     \caption{Diagramme de cas d’utilisation UML de haut niveau de Connect Four}
 \end{figure}
 
@@ -61,26 +43,16 @@
 
 \section{Ergonomie et amélioration}
 
-
-
 \section{Plan de tests de Connect Four}
 
 \begin{table}[H]
     \centering
     \caption{Plan de tests de l'interface graphique}
-    \begin{tabular}{p{2in}p{2in}p{2in}}
+    \begin{tabular}{p{0.25in}p{2.5in}p{0.5in}p{2.5in}}
         \hline
-        \bfseries Fonction & \bfseries Paramètre & \bfseries Résultat attendu\\
-        \hline
-        getLargeur & Rectangle() & 1\\
-        getHauteur & Rectangle() & 1\\
-        getAncrage & Rectangle() & \{0, 0\}\\
-        aire & Rectangle() & 1\\
-        \hline
-        getLargeur & Rectangle(2, 3, \{4, 5\}) & 2\\
-        getHauteur & Rectangle(2, 3, \{4, 5\}) & 3\\
-        getAncrage & Rectangle(2, 3, \{4, 5\}) & \{4, 5\}\\
-        aire & Rectangle(2, 3, \{4, 5\}) & 6\\
+        \bfseries Test & \bfseries Description et résultats & \bfseries Passé & \bfseries Justification \\
+        \hline\hline
+        1 & Nombre d'élément dans le menu inférieur à 7 & Oui & Tous les menus ont moins de 7 éléments \\
         \hline
     \end{tabular}
 \end{table}
@@ -88,19 +60,13 @@
 \begin{table}[H]
     \centering
     \caption{Plan de tests de l'application}
-    \begin{tabular}{p{2in}p{2in}p{2in}}
+    \begin{tabular}{p{0.25in}p{2.5in}p{0.5in}p{2.5in}}
         \hline
-        \bfseries Fonction & \bfseries Paramètre & \bfseries Résultat attendu\\
-        \hline
-        getLargeur & Rectangle() & 1\\
-        getHauteur & Rectangle() & 1\\
-        getAncrage & Rectangle() & \{0, 0\}\\
-        aire & Rectangle() & 1\\
-        \hline
-        getLargeur & Rectangle(2, 3, \{4, 5\}) & 2\\
-        getHauteur & Rectangle(2, 3, \{4, 5\}) & 3\\
-        getAncrage & Rectangle(2, 3, \{4, 5\}) & \{4, 5\}\\
-        aire & Rectangle(2, 3, \{4, 5\}) & 6\\
+        \bfseries Test & \bfseries Description et résultats & \bfseries Passé & \bfseries Justification \\
+        \hline\hline
+        1 & On peux déplacer le pion de gauche à droite & Oui & Le pion se déplace de gauche à droite \\
+        2 & Le pion ne peux pas aller à l'extérieur du plateu & Oui & Le déplacement du pion est limité à la largeur du plateau de jeu \\
+        3 & Le jeton tombe à l'endroit attendu lorsque qu'on appuie sur la bare d'espacement & Oui & Le pion tombe au bon endroit \\
         \hline
     \end{tabular}
 \end{table}
