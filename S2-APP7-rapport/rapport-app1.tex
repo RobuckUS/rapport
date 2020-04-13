@@ -1,0 +1,46 @@
+\documentclass[11pt, french]{article}
+
+\usepackage[letterpaper, hmargin=1.25in, vmargin=1in]{geometry}
+
+\usepackage[pdftex,colorlinks,linkcolor=black,urlcolor=black,citecolor=black]{hyperref}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{babel}
+\usepackage[autolanguage]{numprint}
+
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{graphicx}
+
+\usepackage{parskip}
+
+\usepackage{setspace}
+\setstretch{1.5}
+
+\usepackage[font=bf]{caption}
+
+\usepackage{placeins}
+
+\usepackage{tikz-uml}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+
+\renewcommand{\tablename}{Tableau}
+\floatname{algorithm}{Procedure}
+
+\begin{spacing}{1}
+    \input{titlepage.tex}
+\end{spacing}
+
+\newpage
+
+\pagenumbering{arabic}
+
+\input{content.tex}
+
+\end{document}
