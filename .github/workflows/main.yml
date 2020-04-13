@@ -15,12 +15,12 @@ jobs:
       - name: Compile LaTeX document
         uses: dante-ev/latex-action@master
         with:
-          working_directory: 4-Rapport-Final
-          root_file: 4-Rapport-Final.tex
+          working_directory: S2-APP7-rapport
+          root_file: rapport-app7.tex
 
       - name: Upload artifact
         continue-on-error: true
         uses: actions/upload-artifact@v1.0.0
         with:
-          name: 4-Rapport-Final
-          path: 4-Rapport-Final/4-Rapport-Final.pdf
+          name: Rapport APP7 S2
+          path: S2-APP7-rapport/rapport-app7.pdf
