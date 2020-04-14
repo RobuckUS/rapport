@@ -61,7 +61,9 @@ Pour le tableau de jeu, la méthode QGraphicsScene a été utilisée pour pouvoi
         \bfseries Test & \bfseries Description et résultats & \bfseries Passé & \bfseries Justification \\
         \hline\hline
         1 & Nombre d'élément dans le menu inférieur à 7 & Oui & Tous les menus ont moins de 7 éléments \\
-        & L'utilisateur peux revenir au menu principal en tout temps. & Non & Certains écrans ne contiennent pas bouton de retour à l'écran principal.\\
+        2 & L'utilisateur peux revenir au menu principal en tout temps. & Non & Certains écrans ne contiennent pas bouton de retour à l'écran principal.\\
+        3 & Dans le tableau de score, les scores sont aligné lorsque les noms ont 6 charactères. & Oui & Les scores sont allignés.\\
+        4 & Dans le tableau de score, chaque noms n'apparait qu'une seule fois. & Non & Les nom peuvent apparaître plusieur fois.\\
         \hline
     \end{tabular}
 \end{table}
@@ -76,8 +78,8 @@ Pour le tableau de jeu, la méthode QGraphicsScene a été utilisée pour pouvoi
         1 & On peux déplacer le pion de gauche à droite & Oui & Le pion se déplace de gauche à droite \\
         2 & Le pion ne peux pas aller à l'extérieur du plateu & Oui & Le déplacement du pion est limité à la largeur du plateau de jeu \\
         3 & Le jeton tombe à l'endroit attendu lorsque qu'on appuie sur la bare d'espacement & Oui & Le pion tombe au bon endroit \\
-         & Lorsque 4 jetons sont aligné, le bon gagnant est déclaré. & Oui & Le bon gagnant est déclaré vaiceur à la fin de la partie.\\
-         & Lorsqu'il n'est plus possible d'ajouter un jeton (le tableau est plein), l'utilisateur devrait pouvoir recommencer une autre partie.& Non & L'utilisateur reste bloqué dans le tableau.\\
-         \hline
+        4 & Lorsque 4 jetons sont aligné, le bon gagnant est déclaré. & Oui & Le bon gagnant est déclaré vaiceur à la fin de la partie.\\
+        5 & Lorsqu'il n'est plus possible d'ajouter un jeton (le tableau est plein), l'utilisateur devrait pouvoir recommencer une autre partie.& Non & L'utilisateur reste bloqué dans le tableau.\\
+        \hline
     \end{tabular}
 \end{table}
